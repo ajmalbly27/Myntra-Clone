@@ -1,0 +1,95 @@
+.login-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(250, 233, 236);
+}
+
+.login-container {
+    width: 400px;
+    margin: 25px auto;
+    background-color: white;
+}
+
+.login-container img {
+    width: 400px;
+}
+
+.login-main {
+    padding: 25px 30px;
+}
+
+.login-signup-text {
+    font-size: 21px;
+    font-weight: 700;
+    color: rgb(61, 59, 59);
+}
+
+.login-or {
+    font-size: medium;
+    font-weight: 500;
+    color: rgb(109, 108, 108);
+}
+
+.input-number-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-top: 15px;
+    border: 1px solid grey;
+}
+
+.login-input-field {
+    width: 100%;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    color: rgb(92, 89, 89);
+}
+
+.span-number {
+    font-size: 14px;
+    padding: 2px 10px;
+    color: rgb(92, 89, 89);
+}
+
+.login-error-div {
+    font-size: 11px;
+    color: rgb(255, 1, 1);
+}
+
+.login-terms-and-condition-text {
+    margin: 20px 0;
+    font-size: 12px;
+    color: grey;
+}
+
+.span-in-login {
+    font-size: 13px;
+    color: #ff3c6f;
+    font-weight: 650;
+}
+
+.login-continue-button {
+    width: 100%;
+    border: none;
+    padding: 10px 0;
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    margin: 10px 0;
+    background-color: #ff3f6c;
+    cursor: pointer;
+}
+
+.login-help-text {
+    margin: 20px 0;
+    font-size: small;
+    color: grey;
+}
+
+.login-help-span-text {
+    color: #ff3c6f;
+    font-size: 14px;
+    font-weight: 650;
+}

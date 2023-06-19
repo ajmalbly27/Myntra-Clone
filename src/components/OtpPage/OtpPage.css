@@ -1,0 +1,32 @@
+.otp-container {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(to bottom right,#feedf6,#fcf0e2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.otp-main {
+    width: 400px;
+    height: 500px;
+    margin: 2vw auto;
+    background: #fff;
+}
+
+.otp-main img {
+    width: 100%;
+    height: auto;
+}
+
+.otp-mobile-varification-logo-div {
+    width: 90px;
+    height: 90px;
+}
+
+@media (min-width: 1366px){
+    .otp-main{
+        width: 29.283vw;
+        height: 36.603vw;
+    }
+}

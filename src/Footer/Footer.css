@@ -1,0 +1,43 @@
+
+.footer-wrapper {
+    background-color: rgb(230, 227, 227);
+}
+
+.content-wrapper {
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 100px;
+}
+
+.footer-wrapper img {
+    width: 50px;
+    height: 50px;
+    margin: 0 15px;
+}
+
+.guarantee-wrapper {
+    display: flex;
+}
+
+.original {
+    font-size: medium;
+    font-weight: 700;
+}
+
+.return-wrapper {
+    display: flex;
+    margin: 10px 0;
+}
+
+.return {
+    font-size: medium;
+    font-weight: 700;
+}
+
+.copy-right-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 100px;
+    padding: 40px 0;
+}
