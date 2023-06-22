@@ -1,0 +1,95 @@
+
+.offers {
+    width: 40vw;
+    margin: 10px;
+    border: 1px solid rgb(192, 189, 189);
+}
+
+.offers-container {
+    margin: 20px;
+}
+
+.available-offers {
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.available-offers img {   
+    width: 20px;
+    margin-right: 10px;
+}
+
+.kotak-discount {
+    padding: 5px 0;
+    font-size: small;
+}
+
+.product-quantity {
+    margin: 3px 0;
+    margin-left: 15px;
+}
+
+.return-time {
+    margin-left: 15px;
+}
+
+.cart-product {
+    display: flex;
+    width: 40vw;
+    /* width: 500px; */
+    margin: 10px;
+    border: 1px solid rgb(185, 181, 181);
+}
+
+.cart-wrapper-item {
+    display: flex;
+    justify-content: space-between;
+    width: 50vw;
+    margin: 7px;
+}
+
+.item-image {
+    width: 121px;
+}
+
+.item-image-text {
+    display: flex;
+}
+
+.product-details div {
+    padding: 2px 0;
+}
+
+.product-quantity button {
+    width: 40px;
+    padding: 5px 0;
+    border: none;
+    border-radius: 150px;
+}
+
+.minus {
+    margin-right: 20px;
+    background-color: #ff3e6c;
+    font-size: 18px;
+    font-weight: 900;
+    color: white;
+}
+
+.plus {
+    margin-left: 20px;
+    background-color: #ff3e6c;
+    font-size: 18px;
+    font-weight: 900;
+    color: white;
+}
+
+.quantity-text {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cancel-button {
+    cursor: pointer;
+}

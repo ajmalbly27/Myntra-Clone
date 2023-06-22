@@ -54,3 +54,19 @@
     font-size: 12px;
     margin-left: 5px;
 }
+
+.product-info-container {
+    padding-left :10px;
+}
+
+.btn {    
+    width: 100%;
+    margin: 3px 0;
+    padding: 8px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff3e6c;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}

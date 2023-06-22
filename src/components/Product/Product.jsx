@@ -1,13 +1,17 @@
+import React, { useContext } from 'react';
 import './Product.css';
+import { CartContext } from '../../context/CartContext';
 
 const Product = ({item}) => {
+
+    const { addToCart } = useContext(CartContext)
 
     return(
         <div className='each-item'>
             <div className='product-image'>
                 <img src={item.searchImage} alt='Product-img'/>
             </div>
-            <div>
+            <div className='product-info-container'>
                 <h3 className='product-brand'>
                     {item.brand}
                 </h3>
@@ -20,6 +24,7 @@ const Product = ({item}) => {
                     <span className="product-discount-percentage">&nbsp;{item.discountDisplayLabel}</span>
                 </div>
             </div>
+            <button className="btn" onClick={() => addToCart(item)}>ADD TO BAG</button>
         </div>
     )
 }

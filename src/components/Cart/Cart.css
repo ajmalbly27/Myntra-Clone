@@ -1,0 +1,10 @@
+.cart-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-container {
+    display: flex;
+    justify-content: center;
+}
+
