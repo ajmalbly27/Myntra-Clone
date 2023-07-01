@@ -26,13 +26,35 @@
     font-size: small;
 }
 
+.cart-item-brand{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    color: #282c3f;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.cart-item-info {
+    color: #535766;
+    font-size: 14px;
+    line-height: 1;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 400;
+}
+
+
 .product-quantity {
-    margin: 3px 0;
-    margin-left: 15px;
+    margin: 7px 0;
 }
 
 .return-time {
-    margin-left: 15px;
+    margin: 5px 0;
+}
+
+.cartItem-14days {
+    font-weight: 600;
 }
 
 .cart-product {
@@ -62,6 +84,10 @@
     padding: 2px 0;
 }
 
+.cart-item-details {
+    margin-left: 11px;
+}
+
 .product-quantity button {
     width: 40px;
     padding: 5px 0;
@@ -72,16 +98,16 @@
 .minus {
     margin-right: 20px;
     background-color: #ff3e6c;
-    font-size: 18px;
-    font-weight: 900;
+    font-size: 15px;
+    font-weight: 700;
     color: white;
 }
 
 .plus {
     margin-left: 20px;
     background-color: #ff3e6c;
-    font-size: 18px;
-    font-weight: 900;
+    font-size: 15px;
+    font-weight: 700;
     color: white;
 }
 

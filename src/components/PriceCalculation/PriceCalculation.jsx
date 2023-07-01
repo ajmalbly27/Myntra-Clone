@@ -15,13 +15,12 @@ const PriceCalculation = () => {
     let convenienceFee = 10;
     let totalAmount = 0;
 
-    cartValue.map((item) => {
-        mrpPrice = Number(mrpPrice) + item.quantity * (Number(item.strickPrice));
-        finalPrice = Number(finalPrice) + item.quantity * (Number(item.finalPrice));
+    for(let item of cartValue) {
+        mrpPrice = Number(mrpPrice) + item.quantity * (Number(item.mrp));
+        finalPrice = Number(finalPrice) + item.quantity * (Number(item.price));
         discountPrice = Number(mrpPrice - finalPrice);
         totalAmount = mrpPrice - discountPrice + convenienceFee;
-        return 0;
-    });
+    }
 
     return(
         <div className="price-wrapper">

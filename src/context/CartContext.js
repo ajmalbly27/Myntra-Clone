@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = (props) => {
-
+    const [allProducts, setAllProducts] = useState(null);
     const [cartValue, setCartValue] = useState([]);
 
     const addToCart = (item) => {
@@ -43,12 +43,25 @@ export const CartProvider = (props) => {
         );
     }
 
+    const removeFromCart = (item) => {
+        console.log("AJmal Cart");
+        let newCartValue = [...cartValue];
+        const index = newCartValue.indexOf(item);
+        if (index > -1) {
+            newCartValue.splice(index, 1);
+        }
+        setCartValue(newCartValue);
+    }
+
     return (
         <CartContext.Provider value={{
+            allProducts,
+            setAllProducts,
             cartValue,
             addToCart,
             increaseQuantity,
-            decreaseQuantity
+            decreaseQuantity,
+            removeFromCart
         }}>
             {props.children}
         </CartContext.Provider>
