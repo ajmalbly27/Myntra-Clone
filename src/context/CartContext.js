@@ -3,7 +3,8 @@ import React, { createContext, useState } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = (props) => {
-    const [allProducts, setAllProducts] = useState(null);
+    const [allProducts, setAllProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const [cartValue, setCartValue] = useState([]);
 
     const addToCart = (item) => {
@@ -53,15 +54,141 @@ export const CartProvider = (props) => {
         setCartValue(newCartValue);
     }
 
+    const allProductFilter = () => {
+        setFilteredProducts(allProducts);
+    }    
+
+    const mensJeansFilter = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Jeans" && item.gender === "Men";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const menCasualShoes = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Casual Shoes" && item.gender === "Men";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const menWatches = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Watches" && item.gender === "Men";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const womenDresses = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return (item.category === "Dresses" || item.category === "Kurtas") && item.gender === "Women";
+        })
+        setFilteredProducts(filteredItems)
+    }
+    const womenSaree = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Sarees" && item.gender === "Women";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const womenJeans= () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Jeans" && item.gender === "Women";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const womenCasualShoes = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Casual Shoes" && item.gender === "Women";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const womenWatches = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Watches" && item.gender === "Women";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const headphones = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Headphones";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const fitnessBands = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Fitness Bands";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const slidersFilter = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Flip Flops";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const menFilter = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.gender === "Men";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const womenFilter = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.gender === "Women";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const beautyFilter = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Kajal and Eyeliner" || item.category === "Mascara";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
+    const watchFilter = () => {
+        const filteredItems= allProducts.filter((item) => {
+            return item.category === "Watches";
+        })
+        setFilteredProducts(filteredItems)
+    }
+
     return (
         <CartContext.Provider value={{
             allProducts,
             setAllProducts,
+            filteredProducts,
+            setFilteredProducts,
             cartValue,
             addToCart,
             increaseQuantity,
             decreaseQuantity,
-            removeFromCart
+            removeFromCart,
+            allProductFilter,
+            mensJeansFilter,
+            menCasualShoes,
+            menWatches,
+            womenDresses,
+            womenSaree,
+            womenJeans,
+            womenCasualShoes,
+            womenWatches,
+            headphones,
+            fitnessBands,
+            slidersFilter,
+            menFilter,
+            womenFilter,
+            beautyFilter,
+            watchFilter
         }}>
             {props.children}
         </CartContext.Provider>

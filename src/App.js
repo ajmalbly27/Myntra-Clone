@@ -10,7 +10,7 @@ import { CartContext } from './context/CartContext';
 
 function App() {
 
-  const { setAllProducts } = useContext(CartContext);
+  const { setAllProducts, setFilteredProducts } = useContext(CartContext);
     
   useEffect(() => {
       console.log("Ajmal Ansari");
@@ -19,7 +19,8 @@ function App() {
       .then(data => {
           // console.log(data);
           console.log(data.products);
-          setAllProducts(data);
+          setAllProducts(data.products);
+          setFilteredProducts(data.products);
       })
       // eslint-disable-next-line
   }, []);

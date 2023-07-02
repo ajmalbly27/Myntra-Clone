@@ -23,10 +23,17 @@
 .image-logo {
     width: 51px;
     margin: 0 40px;
+    cursor: pointer;
 }
 
 .nav-text {
     padding: 0 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-text p {
+    cursor: pointer;
 }
 
 .search {

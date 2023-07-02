@@ -6,21 +6,22 @@ import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = ()  => {
-    const { cartValue } = useContext(CartContext);
+    const { cartValue, menFilter, womenFilter, beautyFilter, watchFilter } = useContext(CartContext);
     const navigate = useNavigate();
 
     return(
      <div className="container">
         <div className="left-container">
             <div>
-                <img className='image-logo' src={logo} alt='Myntra-logo'/>
+                <img className='image-logo' src={logo} alt='Myntra-logo'
+                    onClick={() => navigate('/')}
+                />
             </div>
             <div className='header-links'>
-                <div className='nav-text'><p>MEN</p></div>
-                <div className='nav-text'><p>WOMEN</p></div>
-                <div className='nav-text'><p>KIDS</p></div>
-                <div className='nav-text'><p>HOME&LIVING</p></div>
-                <div className='nav-text'><p>BEAUTY</p></div>
+                <div className='nav-text'><p onClick={menFilter}>MEN</p></div>
+                <div className='nav-text'><p onClick={womenFilter}>WOMEN</p></div>
+                <div className='nav-text'><p onClick={beautyFilter}>BEAUTY</p></div>
+                <div className='nav-text'><p onClick={watchFilter}>WATCHES</p></div>
             </div>
         </div>
         <div className="right-container">

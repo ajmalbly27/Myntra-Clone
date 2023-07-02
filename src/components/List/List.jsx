@@ -5,12 +5,12 @@ import { CartContext } from "../../context/CartContext";
 
 const List = () => {
 
-    const { allProducts } = useContext(CartContext);
+    const { filteredProducts } = useContext(CartContext);
 
     return(
         <div className="each-item-wrapper">
             {
-                allProducts && allProducts.products.map((eachItem, index) => {
+                filteredProducts.length>0 && filteredProducts.map((eachItem, index) => {
                     return <Product item={eachItem} key={index}/>
                 })
             }
