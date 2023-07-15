@@ -6,7 +6,7 @@ import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = ()  => {
-    const { cartValue, menFilter, womenFilter, beautyFilter, watchFilter } = useContext(CartContext);
+    const { cartValue, menFilter, womenFilter, beautyFilter, watchFilter, onSearch } = useContext(CartContext);
     const navigate = useNavigate();
 
     return(
@@ -26,7 +26,9 @@ const NavBar = ()  => {
         </div>
         <div className="right-container">
             <div>
-                <input type='text' className='search' placeholder='Search for products, brands and more'/>
+                <input type='text' className='search' placeholder='Search for products, brands and more'
+                    onChange={(e) => onSearch(e)}
+                />
             </div>
             <div className="profile-wishlist-bag">
                 <div className='bag-wrapper'>

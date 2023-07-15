@@ -162,6 +162,15 @@ export const CartProvider = (props) => {
         setFilteredProducts(filteredItems)
     }
 
+    const onSearch = (e) => {
+        let value  = e.target.value;
+        // console.log(value);
+        const filteredItems= allProducts.filter((item) => {
+            return item.brand.toLowerCase().includes(value.toLowerCase()) || item.category.toLowerCase().includes(value.toLowerCase());
+        })
+        setFilteredProducts(filteredItems)
+    }
+
     return (
         <CartContext.Provider value={{
             allProducts,
@@ -188,7 +197,8 @@ export const CartProvider = (props) => {
             menFilter,
             womenFilter,
             beautyFilter,
-            watchFilter
+            watchFilter,
+            onSearch
         }}>
             {props.children}
         </CartContext.Provider>
