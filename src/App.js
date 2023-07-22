@@ -13,7 +13,6 @@ function App() {
   const { setAllProducts, setFilteredProducts } = useContext(CartContext);
     
   useEffect(() => {
-      console.log("Ajmal Ansari");
       fetch("https://demo3154199.mockable.io/products")
       .then(response => response.json())
       .then(data => {
@@ -34,7 +33,6 @@ function App() {
         <Route path='/otppage' element={<OtpPage />}/>
         <Route path='/signuppage' element={<SignupPage />}/>
         <Route path='/cart' element={<Cart />}/>
-
       </Routes>
     </div>
   );

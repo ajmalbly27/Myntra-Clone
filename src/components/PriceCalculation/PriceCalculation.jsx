@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./PriceCalculation.css";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import Popup from "../Popup/Popup";
 
 const PriceCalculation = () => {
 
     const navigate = useNavigate();
+    const { cartValue, mobileNumber } = useContext(CartContext);
 
-    const { cartValue } = useContext(CartContext);
+    const [showPopup, setShowPopup] = useState(false);
 
     let mrpPrice = 0;
     let finalPrice = 0;
@@ -20,6 +22,19 @@ const PriceCalculation = () => {
         finalPrice = Number(finalPrice) + item.quantity * (Number(item.price));
         discountPrice = Number(mrpPrice - finalPrice);
         totalAmount = mrpPrice - discountPrice + convenienceFee;
+    }
+
+    const handlePlaceOrder = () => {
+        if(mobileNumber){
+            // navigate('/');
+            setShowPopup(true);
+            // Set a timer to hide the popup after 2000 milliseconds (2 seconds)
+            setTimeout(() => {
+                setShowPopup(false);
+            }, 2000);
+        }else{
+            navigate('/login');
+        }
     }
 
     return(
@@ -45,7 +60,8 @@ const PriceCalculation = () => {
                 <div>Total Amount</div>
                 <div> &#8377;{totalAmount}</div>
             </div>
-            <button className="place-order-button" onClick={() => navigate('/Login')}>PLACE ORDER</button>
+            <button className="place-order-button" onClick={handlePlaceOrder}>PLACE ORDER</button>
+            <Popup show={showPopup}/>
         </div>
     )
 }

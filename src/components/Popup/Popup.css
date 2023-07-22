@@ -1,0 +1,14 @@
+.popup {
+    position: fixed;
+    top: 15%;
+    right: 10px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(7, 94, 7);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transform: translateY(-50%);
+    z-index: 9999;
+}
+
+

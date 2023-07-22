@@ -18,11 +18,10 @@ const OtpPage = () => {
         setGeneratedOTP(Math.floor(1000 + Math.random() * 9000).toString());
     }
 
+    // Update generatedOTP whenever it changes
     useEffect(() => {
-        generateOTP();
-        alert(`Generated OTP: ${generatedOTP}`);
-        // eslint-disable-next-line
-    }, []);
+        alert(`OTP for login: ${generatedOTP}`);
+    }, [generatedOTP]);
 
     const handleOTPChange = (index, event) => {
         const value = event.target.value;
@@ -51,12 +50,16 @@ const OtpPage = () => {
 
             if( filledOTP === generatedOTP ) {
                 console.log("Yes redirected to SignupPage");
-                navigate("/signuppage");
+                navigate("/");
             } else {
                 console.log("No redirected to SignupPage");
             }
         }
 
+    }
+
+    const handleResendOTP = () => {
+        generateOTP();
     }
 
     return (
@@ -67,13 +70,12 @@ const OtpPage = () => {
                     <div className="otp-mobile-varification-logo-div">
                         <img src={otplogo} alt="otplogo-img"/>
                     </div>
-                    <div>Varify with OTP</div>
-                    <div>Sent to {}</div>
-
+                    <div className="otp-varify-text">Varify with OTP</div>
 
                     {otp.map((digit, index) => (
                         <input 
                             key={index}
+                            className="otp-input-divs"
                             type="text"
                             value={digit}
                             onChange={(event) => handleOTPChange(index, event)}
@@ -83,9 +85,12 @@ const OtpPage = () => {
                     ))}
 
 
-                    <div>RESEND OTP</div>
-                    <div>Log in using <span>Password</span></div>
-                    <div>Having trouble logging in?<span>Get help</span></div>
+                    <div 
+                        className="resend-otp"
+                        onClick={handleResendOTP}
+                    >RESEND OTP</div>
+                    <div className="otp-text">Log in using <span>Password</span></div>
+                    <div className="otp-text">Having trouble logging in?<span>Get help</span></div>
                 </div>
             </div>
         </div>

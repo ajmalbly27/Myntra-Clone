@@ -1,18 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Header/NavBar";
 import "./Login.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 
 const Login = () => {
 
-    const [mobileNumber, setMobileNumber] = useState('');
+    // const [mobileNumber, setMobileNumber] = useState('');
+    const { mobileNumber, setMobileNumber } = useContext(CartContext);
+
     const [flag, setFlag] = useState(false);
     const navigate = useNavigate();
-
-    const handleChange = (e) => {
-        setMobileNumber(e.target.value);
-        console.log(mobileNumber);
-    }
 
     const handleContinueClick = () => {
         if(mobileNumber === '' || mobileNumber.length < 10 || mobileNumber.length > 10) {
@@ -39,7 +37,7 @@ const Login = () => {
                         type="text"
                         value={mobileNumber}
                         placeholder="Mobile Number"
-                        onChange={handleChange}
+                        onChange={(e) => setMobileNumber(e.target.value)}
                     />
                 </div>
                 {flag ? 

@@ -8,8 +8,9 @@
 }
 
 .otp-main {
-    width: 400px;
-    height: 500px;
+    width: 300px;
+    height: 400px;
+    padding: 50px;
     margin: 2vw auto;
     background: #fff;
 }
@@ -22,6 +23,33 @@
 .otp-mobile-varification-logo-div {
     width: 90px;
     height: 90px;
+}
+
+.otp-varify-text{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.resend-otp {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ff3e6c;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.otp-text {
+    font-weight: 500;
+    color: rgb(53, 52, 52);
+}
+
+.otp-input-divs {
+    width: 25px;
+    height: 30px;
+    padding: 3px;
+    font-size: large;
+    margin: 20px 0;
+    margin-right: 20px;
 }
 
 @media (min-width: 1366px){

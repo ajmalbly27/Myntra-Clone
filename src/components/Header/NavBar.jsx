@@ -6,8 +6,23 @@ import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = ()  => {
-    const { cartValue, menFilter, womenFilter, beautyFilter, watchFilter, onSearch } = useContext(CartContext);
+    const { 
+        cartValue, 
+        menFilter, 
+        womenFilter, 
+        beautyFilter, 
+        watchFilter, 
+        onSearch,
+        mobileNumber,
+        setMobileNumber
+    } = useContext(CartContext);
+
     const navigate = useNavigate();
+
+    const handleLogout = () => {
+        setMobileNumber('');
+        navigate('/');
+    }
 
     return(
      <div className="container">
@@ -35,7 +50,10 @@ const NavBar = ()  => {
                     <img src={bag} alt='bag-img' onClick={() => navigate('/Cart')}/>
                     {cartValue.length ? <span className="bag-span">{cartValue.length}</span> : null}
                 </div>
-                <button className='login-logout-button' onClick={() => navigate("/login")}>LOGIN</button>
+                {
+                    mobileNumber === "" ? <button className='login-logout-button' onClick={() => navigate("/login")}>LOGIN</button>
+                    : <button className='login-logout-button' onClick={handleLogout}>LOGOUT</button>
+                }
             </div>
         </div>
      </div>   

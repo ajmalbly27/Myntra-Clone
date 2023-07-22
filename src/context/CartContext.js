@@ -3,6 +3,9 @@ import React, { createContext, useState } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = (props) => {
+
+    const [mobileNumber, setMobileNumber] = useState('');
+
     const [allProducts, setAllProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [cartValue, setCartValue] = useState([]);
@@ -173,6 +176,8 @@ export const CartProvider = (props) => {
 
     return (
         <CartContext.Provider value={{
+            mobileNumber,
+            setMobileNumber,
             allProducts,
             setAllProducts,
             filteredProducts,

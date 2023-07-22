@@ -1,10 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Product.css';
 import { CartContext } from '../../context/CartContext';
+import AddToCartPopup from '../Popup/AddToCartPopup';
 
 const Product = ({item}) => {
 
-    const { addToCart } = useContext(CartContext)
+    const { addToCart } = useContext(CartContext);
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleAddToCart = (item) => {
+        addToCart(item);
+        setShowPopup(true);
+            // Set a timer to hide the popup after 2000 milliseconds (2 seconds)
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 2000)
+    }
 
     return(
         <div className='each-item'>
@@ -24,7 +35,8 @@ const Product = ({item}) => {
                     <span className="product-discount-percentage">&nbsp;{item.discountDisplayLabel}</span>
                 </div>
             </div>
-            <button className="btn" onClick={() => addToCart(item)}>ADD TO BAG</button>
+            <button className="btn" onClick={() => handleAddToCart(item)}>ADD TO BAG</button>
+            <AddToCartPopup show={showPopup}/>
         </div>
     )
 }
