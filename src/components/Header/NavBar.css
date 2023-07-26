@@ -158,10 +158,10 @@
 
 @media screen and (min-width: 360px) and (max-width: 649px){
     .container {
-        height: 7vh;
+        height: 10vh;
     }
     .image-logo {
-        width: 40px;
+        width: 11vw;
         margin: 0 15px;
     }
     .nav-text {
@@ -172,14 +172,14 @@
         display: none;
     }
     .profile-wishlist-bag img {
-        width: 25px;
+        width: 7vw;
         margin-left: 5px;
     }
     .bag-wrapper {
         margin-right: 5px;
     }
     .login-logout-button {
-        margin-right: 5px;
+        margin-right: 10px;
         margin-left: 3px;
     }
 }

@@ -52,6 +52,7 @@
         font-size: small;
         padding-left: 3px;
         font-weight: 650;
+        word-wrap: break-word;
         color: rgb(92, 91, 91);
     }
 }
