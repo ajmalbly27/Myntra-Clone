@@ -19,6 +19,23 @@ const NavBar = ()  => {
 
     const navigate = useNavigate();
 
+    const handleMenClick = () => {
+        navigate('/');
+        menFilter();
+    }
+    const handleWomenClick = () => {
+        navigate('/');
+        womenFilter();
+    }
+    const handleBeautyClick = () => {
+        navigate('/');
+        beautyFilter();
+    }
+    const handleWatchesClick = () => {
+        navigate('/');
+        watchFilter();
+    }
+
     const handleLogout = () => {
         setMobileNumber('');
         navigate('/');
@@ -33,10 +50,10 @@ const NavBar = ()  => {
                 />
             </div>
             <div className='header-links'>
-                <div className='nav-text'><p onClick={menFilter}>MEN</p></div>
-                <div className='nav-text'><p onClick={womenFilter}>WOMEN</p></div>
-                <div className='nav-text'><p onClick={beautyFilter}>BEAUTY</p></div>
-                <div className='nav-text'><p onClick={watchFilter}>WATCHES</p></div>
+                <div className='nav-text'><p onClick={handleMenClick}>MEN</p></div>
+                <div className='nav-text'><p onClick={handleWomenClick}>WOMEN</p></div>
+                <div className='nav-text'><p onClick={handleBeautyClick}>BEAUTY</p></div>
+                <div className='nav-text'><p onClick={handleWatchesClick}>WATCHES</p></div>
             </div>
         </div>
         <div className="right-container">

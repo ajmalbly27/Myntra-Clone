@@ -48,7 +48,7 @@ export const CartProvider = (props) => {
     }
 
     const removeFromCart = (item) => {
-        console.log("AJmal Cart");
+        // console.log("AJmal Cart");
         let newCartValue = [...cartValue];
         const index = newCartValue.indexOf(item);
         if (index > -1) {
@@ -171,7 +171,7 @@ export const CartProvider = (props) => {
         const filteredItems= allProducts.filter((item) => {
             return item.brand.toLowerCase().includes(value.toLowerCase()) || item.category.toLowerCase().includes(value.toLowerCase());
         })
-        setFilteredProducts(filteredItems)
+        setFilteredProducts(filteredItems);
     }
 
     return (
@@ -183,6 +183,7 @@ export const CartProvider = (props) => {
             filteredProducts,
             setFilteredProducts,
             cartValue,
+            setCartValue,
             addToCart,
             increaseQuantity,
             decreaseQuantity,

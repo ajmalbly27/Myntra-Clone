@@ -7,7 +7,7 @@ import Popup from "../Popup/Popup";
 const PriceCalculation = () => {
 
     const navigate = useNavigate();
-    const { cartValue, mobileNumber } = useContext(CartContext);
+    const { cartValue, mobileNumber, setCartValue } = useContext(CartContext);
 
     const [showPopup, setShowPopup] = useState(false);
 
@@ -37,6 +37,10 @@ const PriceCalculation = () => {
         }
     }
 
+    const handleClick = () => {
+        setCartValue([]);
+    }
+
     return(
         <div className="price-wrapper">
             <div className="price-details-text">PRICE DETAILS</div>
@@ -61,6 +65,7 @@ const PriceCalculation = () => {
                 <div> &#8377;{totalAmount}</div>
             </div>
             <button className="place-order-button" onClick={handlePlaceOrder}>PLACE ORDER</button>
+            <button className="clear-Cart-button" onClick={handleClick}>Clear Cart</button>
             <Popup show={showPopup}/>
         </div>
     )

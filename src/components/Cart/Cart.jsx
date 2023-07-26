@@ -6,6 +6,7 @@ import PriceCalculation from "../PriceCalculation/PriceCalculation";
 import percentageLogo from "../../images/percentage.png";
 import { CartContext } from "../../context/CartContext";
 import EmptyCartNavbar from "../EmptyCartNavbar/EmptyCartNavbar";
+import Footer from "../../Footer/Footer";
 
 
 const Cart = () => {
@@ -43,6 +44,7 @@ const Cart = () => {
                     {   cartValue.length>0 && <PriceCalculation />   }               
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

@@ -7,6 +7,7 @@ import SignupPage from './components/SignupPage/SignupPage';
 import Cart from './components/Cart/Cart';
 import { useContext, useEffect } from 'react';
 import { CartContext } from './context/CartContext';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 function App() {
 
@@ -28,11 +29,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/login' element={<Login />}/>
-        <Route path='/otppage' element={<OtpPage />}/>
-        <Route path='/signuppage' element={<SignupPage />}/>
-        <Route path='/cart' element={<Cart />}/>
+        <Route path='/' element={<Home />} />
+        <Route path='/product/:productId' element={<ProductDetails />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/otppage' element={<OtpPage />} />
+        <Route path='/signuppage' element={<SignupPage />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     </div>
   );

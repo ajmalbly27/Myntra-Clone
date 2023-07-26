@@ -1,3 +1,8 @@
+.filter-container {
+    margin: 0;
+    padding: 0;
+}
+
 .filter-holder {
     width: 20vw;
     min-height: 75vh;
@@ -26,4 +31,27 @@
     color: rgb(0, 0, 0);
     background-color: rgb(240, 247, 244);
     border-left: 5px solid #ff3e6c;
+}
+
+@media screen and (min-width: 720px) and (max-width: 967px){
+    .filter-holder {
+        width: 35vw;
+    }   
+}
+
+@media screen and (min-width: 390px) and (max-width: 649px){
+    .filter-holder {
+        width: 20vw;
+        padding: 10px;
+        margin: 5px 5px;
+    }
+    .filter-heading {
+        font-size: medium;
+    }
+    .filter-text {
+        font-size: small;
+        padding-left: 5px;
+        font-weight: 650;
+        color: rgb(92, 91, 91);
+    }
 }

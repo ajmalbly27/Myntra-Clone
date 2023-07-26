@@ -3,3 +3,34 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+
+@media screen and (min-width: 968px) and (max-width: 1200px){
+    .each-item-wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 967px){
+    .each-item-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 767px){
+    .each-item-wrapper {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 719px){
+    .each-item-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 390px) and (max-width: 649px){
+    .each-item-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}

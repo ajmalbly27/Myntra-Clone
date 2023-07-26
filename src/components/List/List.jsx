@@ -9,11 +9,9 @@ const List = () => {
 
     return(
         <div className="each-item-wrapper">
-            {
-                filteredProducts.length>0 && filteredProducts.map((eachItem, index) => {
+            {filteredProducts.length>0 && filteredProducts.map((eachItem, index) => {
                     return <Product item={eachItem} key={index}/>
-                })
-            }
+            })}
         </div>
     )
 }

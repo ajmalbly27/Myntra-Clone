@@ -1,4 +1,5 @@
 import "./AddToCartPopup.css";
+
 const AddToCartPopup = ({ show }) => {
 
     if(!show) return null;
