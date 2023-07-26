@@ -77,7 +77,7 @@ a {
 
 @media screen and (min-width: 360px) and (max-width: 649px) {
     .product-image {
-        width: 130px;
+        width: 125px;
     }
     .product-info-container {
         padding-left: 0px;

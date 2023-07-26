@@ -36,21 +36,21 @@
 @media screen and (min-width: 720px) and (max-width: 967px){
     .filter-holder {
         width: 35vw;
-    }   
+    } 
 }
 
 @media screen and (min-width: 360px) and (max-width: 649px){
     .filter-holder {
-        width: 20vw;
-        padding: 10px;
-        margin: 5px 5px;
+        width: 18vw;
+        padding: 7px;
+        margin: 3px 5px;
     }
     .filter-heading {
         font-size: medium;
     }
     .filter-text {
         font-size: small;
-        padding-left: 5px;
+        padding-left: 3px;
         font-weight: 650;
         color: rgb(92, 91, 91);
     }
