@@ -6,10 +6,3 @@
 .home-container {
     display: flex;
 }
-
-/* @media screen and (min) */
-@media only screen and (max-width: 600px) and (min-width: 412px) {
-    /* .container {
-        height: 5vh;
-    } */
-}

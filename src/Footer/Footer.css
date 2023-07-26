@@ -42,7 +42,7 @@
     padding: 40px 0;
 }
 
-@media screen and (min-width: 390px) and (max-width: 967px){
+@media screen and (min-width: 360px) and (max-width: 967px){
     .content-wrapper, .copy-right-wrapper {
         margin: 0 50px;
     }
