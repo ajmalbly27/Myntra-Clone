@@ -48,7 +48,6 @@ export const CartProvider = (props) => {
     }
 
     const removeFromCart = (item) => {
-        // console.log("AJmal Cart");
         let newCartValue = [...cartValue];
         const index = newCartValue.indexOf(item);
         if (index > -1) {

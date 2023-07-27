@@ -1,6 +1,6 @@
 .otp-container {
     width: 100%;
-    height: auto;
+    height: calc(100vh - 11vh);
     background: linear-gradient(to bottom right,#feedf6,#fcf0e2);
     display: flex;
     justify-content: center;
@@ -8,25 +8,25 @@
 }
 
 .otp-main {
-    width: 300px;
-    height: 400px;
-    padding: 50px;
-    margin: 2vw auto;
+    width: 330px;
+    height: 80%;
+    padding: 20px 30px;
     background: #fff;
 }
 
-.otp-main img {
+.otp-image {
     width: 100%;
     height: auto;
 }
 
 .otp-mobile-varification-logo-div {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
 }
 
 .otp-varify-text{
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -35,26 +35,39 @@
     font-weight: 700;
     color: #ff3e6c;
     cursor: pointer;
-    margin-top: 20px;
 }
 
-.otp-text {
+.otp-text-password, .otp-text-help {
     font-weight: 500;
     color: rgb(53, 52, 52);
 }
 
+.otp-text-password {
+    margin: 25px 0;
+}
+
 .otp-input-divs {
-    width: 25px;
-    height: 30px;
+    width: 23px;
+    height: 35px;
     padding: 3px;
     font-size: large;
-    margin: 20px 0;
+    margin: 30px 0;
     margin-right: 20px;
 }
 
-@media (min-width: 1366px){
-    .otp-main{
-        width: 29.283vw;
-        height: 36.603vw;
+@media screen and (min-width: 350px) and (max-width: 600px) {
+    .otp-main {
+        width: 230px;
+        height: 80%;
+    }
+    .otp-input-divs {
+        width: 20px;
+        height: 30px;
+    }
+    .resend-otp {
+        font-size: 13px;
+    }
+    .otp-text-password, .otp-text-help {
+        font-size: 14px;
     }
 }

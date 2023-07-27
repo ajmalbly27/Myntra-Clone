@@ -9,12 +9,10 @@ const OtpPage = () => {
     const [otp, setOTP] = useState(['', '', '', '']);
     const [generatedOTP, setGeneratedOTP] = useState(Math.floor(1000 + Math.random() * 9000).toString());
     const otpInputRefs = useRef([]);
-    // let generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
 
     const navigate = useNavigate();
 
     const generateOTP = () => {
-        // generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
         setGeneratedOTP(Math.floor(1000 + Math.random() * 9000).toString());
     }
 
@@ -68,7 +66,7 @@ const OtpPage = () => {
             <div className="otp-container">
                 <div className="otp-main">
                     <div className="otp-mobile-varification-logo-div">
-                        <img src={otplogo} alt="otplogo-img"/>
+                        <img src={otplogo} className="otp-image" alt="otplogo-img"/>
                     </div>
                     <div className="otp-varify-text">Varify with OTP</div>
 
@@ -84,13 +82,12 @@ const OtpPage = () => {
                         />
                     ))}
 
-
                     <div 
                         className="resend-otp"
                         onClick={handleResendOTP}
                     >RESEND OTP</div>
-                    <div className="otp-text">Log in using <span>Password</span></div>
-                    <div className="otp-text">Having trouble logging in?<span>Get help</span></div>
+                    <div className="otp-text-password">Log in using <span>Password</span></div>
+                    <div className="otp-text-help">Having trouble logging in?<span>Get help</span></div>
                 </div>
             </div>
         </div>
