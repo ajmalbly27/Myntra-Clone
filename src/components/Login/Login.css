@@ -93,3 +93,30 @@
     font-size: 14px;
     font-weight: 650;
 }
+
+@media screen and (min-width: 350px) and (max-width: 649px) {
+    .login-container {
+        width: 300px;
+    }
+    .login-container img {
+        width: 300px;
+    }
+    .login-signup-text {
+        font-size: 17px;
+    }
+    .input-number-container {
+        padding: 3px;
+        margin-top: 10px;
+    }
+    .login-terms-and-condition-text {
+        margin: 15px 0;
+        font-size: 11px;
+    }
+    .span-in-login {
+        font-size: 12px;
+    }
+    .login-continue-button {
+        padding: 9px 0;
+        margin: 7px 0;
+    }
+}

@@ -15,8 +15,13 @@
     background-color: white;
 }
 
-.empty-cart-image {
+.empty-cart-image-wrapper {
     width: 70%;
+}
+
+.empty-cart-image {
+    width: 100%;
+    height: auto;
 }
 
 .text-div-cart  {
@@ -45,4 +50,19 @@
     color: red;
     font-weight: 700;
     cursor: pointer;
+}
+
+@media screen and (min-width: 350px) and (max-width: 649px){
+    .empty-cart-image-wrapper {
+        width: 50%;
+    }
+    .text-empty-cart {
+        font-size: 18px;
+    }
+    .text-empty-cart-inner {
+        font-size: 13px;
+    }
+    .empty-cart-button {
+        width: 50%;
+    }
 }

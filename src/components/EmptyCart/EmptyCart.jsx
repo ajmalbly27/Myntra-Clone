@@ -9,7 +9,7 @@ const EmptyCart = () => {
         <div>
             <div className="empty-cart-wrapper">
                 <div className="empty-cart-container">
-                    <div>
+                    <div className="empty-cart-image-wrapper">
                         <img className="empty-cart-image" src={emptyBag} alt="EmptyCart-img"/>
                     </div>
                     <div className="text-div-cart">

@@ -52,7 +52,6 @@
 }
 
 .ratingCount {
-    /* font-weight: 500; */
     color: grey;
 }
 
@@ -114,4 +113,39 @@
     font-weight: 600;
     letter-spacing: 1px;
     cursor: pointer;
+}
+
+@media screen and (min-width: 350px) and (max-width: 649px){
+    .productDetails-main-div{
+        flex-direction: column;
+        align-items: center;
+    }
+    .productDetails-img-div {
+        width: 72vw;
+    }
+    .productDetails-details-container {
+        margin-left: 15px;
+        align-items: center;
+    }
+    .productDetails-brand {
+        font-size: 24px;
+        font-weight: 650;
+    }    
+    .productDetails-additionalInfo, .productDetails-productName {
+        font-size: 17px;
+    }
+    .productDetails-price {
+        font-size: large;
+    }
+    .productDetails-mrp-text, .productDetails-mrp {
+        font-size: medium;
+    }
+    .productDetails-discount {
+        font-size: medium;
+    }
+    .add-to-bag-btn {
+        width: 100%;
+        margin-top: 15px;
+        padding: 10px 0;
+    }
 }

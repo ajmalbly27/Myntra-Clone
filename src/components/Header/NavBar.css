@@ -156,12 +156,12 @@
     }
 }
 
-@media screen and (min-width: 360px) and (max-width: 649px){
+@media screen and (min-width: 350px) and (max-width: 649px){
     .container {
-        height: 10vh;
+        height: 11vh;
     }
     .image-logo {
-        width: 11vw;
+        width: 10vw;
         margin: 0 15px;
     }
     .nav-text {
@@ -172,13 +172,15 @@
         display: none;
     }
     .profile-wishlist-bag img {
-        width: 7vw;
+        width: 6vw;
         margin-left: 5px;
     }
     .bag-wrapper {
         margin-right: 5px;
     }
     .login-logout-button {
+        width: 60px;
+        font-size: 12px;
         margin-right: 10px;
         margin-left: 3px;
     }
