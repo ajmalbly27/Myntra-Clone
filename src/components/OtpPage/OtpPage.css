@@ -58,7 +58,7 @@
 @media screen and (min-width: 350px) and (max-width: 600px) {
     .otp-main {
         width: 230px;
-        height: 80%;
+        height: 70%;
     }
     .otp-input-divs {
         width: 20px;

@@ -8,6 +8,41 @@
     justify-content: center;
 }
 
-@media screen and (min-width: 350px) and (max-width: 649px){
+
+.offers {
+    width: 40vw;
+    margin: 10px;
+    border: 1px solid rgb(192, 189, 189);
+}
+
+.offers-container {
+    margin: 20px;
+}
+
+.available-offers {
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    font-weight: 600;
+}
+
+.available-offers img {   
+    width: 20px;
+    margin-right: 10px;
+}
+
+.kotak-discount {
+    padding: 5px 0;
+    font-size: small;
+}
+
+@media screen and (min-width: 350px) and (max-width: 850px){
+    .cart-container {
+        flex-direction: column;
+    }
+    .offers {
+        width: 70vw;
+        margin: 10px auto;
+    }
     
 }

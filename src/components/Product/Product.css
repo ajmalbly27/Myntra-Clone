@@ -77,7 +77,6 @@ a {
 
 @media screen and (min-width: 350px) and (max-width: 649px) {
     .product-image {
-        /* width: 125px; */
         width: 32vw;
     }
     .product-info-container {

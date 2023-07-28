@@ -11,7 +11,7 @@ const CartItem = ({ product }) => {
         
         <div className="cart-product">
             <div className="cart-wrapper-item">
-                <div className="item-image-text">
+                <div className="cart-item-container">
                     <div>
                         <img className="item-image" src={product.searchImage} alt="product-img"/>
                     </div>
@@ -22,7 +22,8 @@ const CartItem = ({ product }) => {
                         <div className="product-details">
                             <span className="product-price">Rs.&nbsp;{product.price}&nbsp;</span>
                             <span className="product-mrp">Rs.&nbsp;{product.mrp}</span>
-                            <span className="product-discount-percentage">&nbsp;{product.discountDisplayLabel}</span>
+                            <br />
+                            <span className="product-discount-percentage">{product.discountDisplayLabel}</span>
                         </div>
 
                         <div className="product-quantity">
@@ -32,7 +33,7 @@ const CartItem = ({ product }) => {
                         </div>
 
                         <div className="return-time">
-                            <img src={retrun_logo} style={{width:15}} alt="return-icon"/>
+                            <img src={retrun_logo} className="return-logo" alt="return-icon"/>
                             <span className="cartItem-14days"> 14 days </span>
                             return available
                         </div>
