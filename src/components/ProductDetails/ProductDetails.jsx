@@ -6,32 +6,64 @@ import { CartContext } from "../../context/CartContext";
 import Footer from "../../Footer/Footer";
 import { FaStar } from 'react-icons/fa';
 import AddToCartPopup from "../Popup/AddToCartPopup";
+import AddToWishList from "../Popup/AddToWishList";
 
 const ProductDetails = () => {    
     const [showPopup, setShowPopup] = useState(false);
+    const [showWishListPopup, setShowWishListPopup] = useState(false);
     const [flag, setFlag] = useState(false);
+    const [wishlistFlag, setWishlistFlag] = useState(false);
+    const [selectedSize, setSelectedSize] = useState("");
+    const [sizeFlag, setSizeFlag] = useState(false);
 
-    const { allProducts, addToCart } = useContext(CartContext);
+    const { allProducts, addToCart, addToWishList } = useContext(CartContext);
     // Get the product ID from the url
     const { productId } = useParams();
     //Find the selected product based on the product ID
     const selectedProduct = allProducts.find((product) => product.productId === parseInt(productId));
-
     const navigate = useNavigate();
 
     const handleAddToCart = (item) => {
-        addToCart(item);
-        setShowPopup(true);
-        setFlag(true);
-        // Set a timer to hide the popup after 2000 milliseconds (2 seconds)
-        setTimeout(() => {
-            setShowPopup(false);
-        }, 2000)
+        if(selectedSize === "") {
+            setSizeFlag(true);
+        }else {
+            addToCart(item, selectedSize);
+            setShowPopup(true);
+            setFlag(true);
+            // Set a timer to hide the popup after 2000 milliseconds (2 seconds)
+            setTimeout(() => {
+                setShowPopup(false);
+            }, 2000)
+        }
     }
 
     const handleGoToBag = () => {
         setFlag(false);
         navigate('/cart');
+    }
+
+    const handleWishList = (item) => {
+        if(selectedSize === "") {
+            setSizeFlag(true);
+        }else {
+            setWishlistFlag(true);
+            addToWishList(item, selectedSize);
+            setShowWishListPopup(true);
+            // Set a timer to hide the popup after 2000 milliseconds (2 seconds)
+            setTimeout(() => {
+                setShowWishListPopup(false);
+            }, 2000)
+        }
+    }
+
+    const handleGoToWishList = () => {
+        setWishlistFlag(false);
+        navigate('/wishlist')
+    }
+
+    const handleSizeClick = (item) => {
+        setSelectedSize(item);
+        setSizeFlag(false);
     }
 
     return (
@@ -63,10 +95,40 @@ const ProductDetails = () => {
                             </div>
                             <div className="productDetails">inclusive of all taxes</div>
                         </div>
-                        {!flag ? <button className="add-to-bag-btn" onClick={() => handleAddToCart(selectedProduct)}>ADD TO BAG</button> 
-                            :<button className="add-to-bag-btn" onClick={handleGoToBag}>GO TO BAG</button>
-                        }
+                        <div>
+                            {selectedProduct.sizes && <div>
+                                <div className="select-size-text">SELECT SIZE</div>
+                                {sizeFlag && <div style={{color:'red'}}>
+                                    Please select size.
+                                </div>}
+                                <div className="sizes-container">
+                                    {selectedProduct.sizes.split(",").map((item, i) => {
+                                        return (
+                                            <div
+                                                className={`size-of-product ${selectedSize === item ? "show" : ""}`}
+                                                key={i}
+                                                onClick={() => handleSizeClick(item)}
+                                            >{item}</div>
+                                        )
+                                    })}
+                                </div>
+                            </div>}
+                        </div>
+                        <div className="add-to-bag-wishlist-wrapper">
+                            {!flag ? <button className="add-to-bag-btn" onClick={() => handleAddToCart(selectedProduct)}>ADD TO BAG</button> 
+                                :<button className="add-to-bag-btn" onClick={handleGoToBag}>GO TO BAG</button>
+                            }
+                            {!wishlistFlag ?
+                                <button className="add-to-wishlist-button"
+                                    onClick={() => handleWishList(selectedProduct)}
+                                >WISHLIST</button>
+                                :<button className="add-to-wishlist-button"
+                                    onClick={handleGoToWishList}
+                                >GO TO WISHLIST</button>
+                            }
+                        </div>
                         <AddToCartPopup show={showPopup}/>
+                        <AddToWishList show={showWishListPopup}/>
                     </div>
                 </div>
             )}

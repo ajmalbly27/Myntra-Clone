@@ -8,6 +8,9 @@ import Cart from './components/Cart/Cart';
 import { useContext, useEffect } from 'react';
 import { CartContext } from './context/CartContext';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import CheckOutPage from './components/CheckOutPage/CheckOutPage';
+import PaymentPage from './components/PaymentPage/PaymentPage';
+import WishList from './components/WishList/WishList';
 
 function App() {
 
@@ -35,6 +38,9 @@ function App() {
         <Route path='/otppage' element={<OtpPage />} />
         <Route path='/signuppage' element={<SignupPage />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/wishlist' element={<WishList />} />
+        <Route path='/checkoutpage' element={<CheckOutPage />} />
+        <Route path='/paymentpage' element={<PaymentPage />} />
       </Routes>
     </div>
   );

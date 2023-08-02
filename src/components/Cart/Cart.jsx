@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "./Cart.css";
 import CartItem from "../CartItem/CartItem";
 import EmptyCart from "../EmptyCart/EmptyCart";
@@ -10,6 +10,8 @@ import Footer from "../../Footer/Footer";
 
 
 const Cart = () => {
+    // eslint-disable-next-line
+    const [show, setshow] = useState(true);
     const { cartValue } = useContext(CartContext);
 
     return(
@@ -41,7 +43,7 @@ const Cart = () => {
                     </div>                    
                 </div>                
                 <div>
-                    {   cartValue.length>0 && <PriceCalculation />   }               
+                    {   cartValue.length>0 && <PriceCalculation show={show}/>   }               
                 </div>
             </div>
             <Footer />

@@ -9,10 +9,11 @@ export const CartProvider = (props) => {
     const [allProducts, setAllProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [cartValue, setCartValue] = useState([]);
+    const [wishListValue, setWishListValue] = useState([]);
 
-    const addToCart = (item) => {
+    const addToCart = (item, size) => {
         // Set a default quantity of 1
-        const itemWithQuantity = { ...item, quantity: 1 };
+        const itemWithQuantity = { ...item, quantity: 1, size: size };
 
         for(let element of cartValue) {
             if(element.productId === item.productId) {
@@ -23,6 +24,34 @@ export const CartProvider = (props) => {
 
         setCartValue([...cartValue, itemWithQuantity]);
     }
+    
+    const removeFromCart = (item) => {
+        let newCartValue = [...cartValue];
+        const index = newCartValue.indexOf(item);
+        if (index > -1) {
+            newCartValue.splice(index, 1);
+        }
+        setCartValue(newCartValue);
+    }
+
+    const addToWishList = (item) => {
+        for(let element of wishListValue) {
+            if(element.productId === item.productId) {
+                // console.log("Present");
+                return;
+            }
+        }
+        setWishListValue([...wishListValue, item])
+    }
+
+    const removeFromWishList = (item) => {
+        let newWishList = [...wishListValue];
+        const index = newWishList.indexOf(item);
+        if (index > -1) {
+            newWishList.splice(index, 1);
+        }
+        setWishListValue(newWishList);
+    }
 
     const increaseQuantity = (item) => {
         setCartValue((prevItems) =>
@@ -32,7 +61,7 @@ export const CartProvider = (props) => {
                 : prevItem
             )
         );
-    }
+    }    
 
     const decreaseQuantity = (item) => {
         if(item.quantity === 1) {
@@ -45,15 +74,6 @@ export const CartProvider = (props) => {
               : prevItem
           )
         );
-    }
-
-    const removeFromCart = (item) => {
-        let newCartValue = [...cartValue];
-        const index = newCartValue.indexOf(item);
-        if (index > -1) {
-            newCartValue.splice(index, 1);
-        }
-        setCartValue(newCartValue);
     }
 
     const allProductFilter = () => {
@@ -183,7 +203,11 @@ export const CartProvider = (props) => {
             setFilteredProducts,
             cartValue,
             setCartValue,
+            wishListValue,
+            setWishListValue,
             addToCart,
+            addToWishList,
+            removeFromWishList,
             increaseQuantity,
             decreaseQuantity,
             removeFromCart,

@@ -54,6 +54,32 @@
     margin-left: 20px;
 }
 
+.profile-img {
+    width: 100%;
+    height: auto;
+}
+
+.login-logout-wrapper {
+    display: none;
+}
+
+.profile-img-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.profile-img-wrapper:hover .login-logout-wrapper {
+    position: absolute;
+    top: 100%;
+    display: block;
+}
+
+.wishlist-wrapper {
+    cursor: pointer;
+}
+
 .bag-wrapper img {
     cursor: pointer;
 }
@@ -78,8 +104,8 @@
 
 .login-logout-button {
     width: 75px;
-    margin-left: 10px;
-    margin-right: 20px;
+    /* margin-left: 10px;
+    margin-right: 20px; */
     background-color: white;
     border: 1px solid red;
     color: red;

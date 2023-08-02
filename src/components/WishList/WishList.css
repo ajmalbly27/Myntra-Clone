@@ -1,0 +1,9 @@
+.wishlist-products-container {
+    margin: 50px 70px;
+}
+
+.wishlist-products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}

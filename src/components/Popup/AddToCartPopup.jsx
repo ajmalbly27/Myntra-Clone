@@ -1,4 +1,3 @@
-import "./AddToCartPopup.css";
 
 const AddToCartPopup = ({ show }) => {
 

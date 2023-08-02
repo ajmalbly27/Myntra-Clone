@@ -1,0 +1,239 @@
+.payment-form-container {
+    margin: 15px;
+    padding: 15px;
+}
+
+.payment-options {
+    display: flex;
+    margin: 15px 0;
+    border: 1px solid rgb(184, 182, 182);
+}
+
+.choose-payment-text {
+    font-size: large;
+    font-weight: 700;
+}
+
+.payment-option-divs {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 25px 15px;
+    border: 1px solid rgb(228, 221, 221);
+    background-color: rgb(241, 241, 241);
+}
+
+.payment-option-divs.show {
+    color: rgb(255, 63, 108);
+    background-color: white;
+    border-right: none;
+    border-left: 7px solid rgb(255, 63, 108);
+}
+
+.selected-payment-option {
+    width: 25vw;
+    padding: 15px;
+}
+
+.payment-options-wrapper {
+    width: 20vw;
+}
+
+.recommended-payment-options-text {
+    margin-bottom: 30px;
+    font-size: large;
+    font-weight: 650;
+}
+
+.recommended-cashondelivery {
+    /* display: flex; */
+    margin-bottom: 25px;
+    font-size: large;
+    font-weight: 600;
+}
+
+.recommended-googlepay {
+    /* display: flex; */
+    margin-bottom: 25px;
+    font-size: large;
+    font-weight: 600;
+}
+
+.recommended-phonepe {
+    /* display: flex; */
+    margin-bottom: 25px;
+    font-size: large;
+    font-weight: 600;
+}
+
+.cashOnDelivery-text {
+    margin-bottom: 35px;
+    font-size: large;
+    font-weight: 650;
+}
+.extra-charge-text {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding: 7px 5px;
+    font-size: small;
+    /* font-weight: 400; */
+    border-radius: 5px;
+    background-color: rgb(247, 243, 243);
+}
+.cashOnDelivery-place-order button {
+    width: 100%;
+    font-size: 15px;
+    padding: 13px 0;
+    /* letter-spacing: 1px; */
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 63, 108);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.cashOnDelivery-place-order {
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.credit-debit-text {
+    font-size: large;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.credit-debit-text2 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 35px;
+    color: grey;
+}
+
+input::placeholder {
+    font-size: 14px;
+}
+
+.credit-debit-input-field input {
+    width: 100%;
+    padding: 8px 10px;
+}
+.credit-debit-input-field {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.credit-debit-valid-cvv-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.credit-debit-valid-thru input {
+    width: 100%;
+    padding: 5px 10px;
+}
+.credit-debit-valid-thru {
+    width: 50%;
+    margin-bottom: 15px;
+    display: flex;
+}
+.credit-debit-cvv input {
+    width: 100%;
+    padding: 5px 10px;
+}
+.credit-debit-cvv {
+    width: 40%;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.credit-debit-pay-now button {
+    width: 100%;
+    padding: 10px 10px;
+}
+
+/* .pay-using-upi-wrapper {
+    width: 25vw;
+} */
+
+.pay-using-upi-text {
+    font-size: large;
+    font-weight: 700;
+}
+.pay-using-upi-phonepe {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: 600;
+}
+.pay-using-upi-googlepay {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: 600;
+}
+.pay-using-upi-enter-upi-id {
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: 600;
+}
+
+.pay-using-upi-id-inner-wrapper input {
+    width: 100%;
+    padding: 7px 11px;
+    margin-bottom: 15px;
+    border: 1px solid rgb(168, 168, 168);
+    border-radius: 5px;
+}
+
+.pay-using-upi-id-inner-wrapper {
+    width: 100%;
+    display: flex;
+}
+
+/* .net-banking-wrapper {
+    width: 25vw;
+} */
+.net-banking-text {
+    font-size: large;
+    font-weight: 700;
+}
+.net-banking-axis-bank,
+.net-banking-hdfc, 
+.net-banking-icici, 
+.net-banking-sbi {
+    font-size: medium;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.recommended-googlepay-enter-details-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.recommended-googlepay-enter-upi input {
+    width: 100%;
+    padding: 5px 10px;
+}
+.recommended-googlepay-enter-upi {
+    width: 70%;
+    margin-bottom: 15px;
+    display: flex;
+}
+.recommended-googlepay-upi-type input {
+    width: 100%;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+.recommended-googlepay-upi-type {
+    width: 30%;
+    margin-bottom: 15px;
+    display: flex;
+}

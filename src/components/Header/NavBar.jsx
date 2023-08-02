@@ -1,6 +1,8 @@
 import logo from '../../images/Myntra-Logo.png';
 import './NavBar.css';
 import bag from "../../images/bag.png";
+import profile from "../../images/profile-icon.png";
+import wishlist from "../../images/Wishlist-Icon.png"
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { useNavigate } from 'react-router-dom';
@@ -63,14 +65,22 @@ const NavBar = ()  => {
                 />
             </div>
             <div className="profile-wishlist-bag">
+                <div className='profile-img-wrapper'>
+                    <img src={profile} alt='profile-img' className='profile-img'/>
+                    <div className='login-logout-wrapper'>
+                    {mobileNumber === "" ? <button className='login-logout-button' onClick={() => navigate("/login")}>LOGIN</button>
+                        : <button className='login-logout-button' onClick={handleLogout}>LOGOUT</button>
+                    }
+                    </div>
+                </div>
+                <div className='wishlist-wrapper'>
+                    <img src={wishlist} alt='wishlist-img' onClick={() => navigate('/wishlist')}/>
+                    {/* {cartValue.length ? <span className="bag-span">{cartValue.length}</span> : null} */}
+                </div>
                 <div className='bag-wrapper'>
                     <img src={bag} alt='bag-img' onClick={() => navigate('/Cart')}/>
                     {cartValue.length ? <span className="bag-span">{cartValue.length}</span> : null}
                 </div>
-                {
-                    mobileNumber === "" ? <button className='login-logout-button' onClick={() => navigate("/login")}>LOGIN</button>
-                    : <button className='login-logout-button' onClick={handleLogout}>LOGOUT</button>
-                }
             </div>
         </div>
      </div>   

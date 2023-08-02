@@ -1,15 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./PriceCalculation.css";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import Popup from "../Popup/Popup";
 
-const PriceCalculation = () => {
+const PriceCalculation = ({show}) => {
 
     const navigate = useNavigate();
     const { cartValue, mobileNumber, setCartValue } = useContext(CartContext);
-
-    const [showPopup, setShowPopup] = useState(false);
 
     let mrpPrice = 0;
     let finalPrice = 0;
@@ -26,12 +23,7 @@ const PriceCalculation = () => {
 
     const handlePlaceOrder = () => {
         if(mobileNumber){
-            // navigate('/');
-            setShowPopup(true);
-            // Set a timer to hide the popup after 2000 milliseconds (2 seconds)
-            setTimeout(() => {
-                setShowPopup(false);
-            }, 2000);
+            navigate('/checkoutpage');
         }else{
             navigate('/login');
         }
@@ -64,9 +56,8 @@ const PriceCalculation = () => {
                 <div>Total Amount</div>
                 <div> &#8377;{totalAmount}</div>
             </div>
-            <button className="place-order-button" onClick={handlePlaceOrder}>PLACE ORDER</button>
-            <button className="clear-Cart-button" onClick={handleClick}>Clear Cart</button>
-            <Popup show={showPopup}/>
+            {show && <button className="place-order-button" onClick={handlePlaceOrder}>PLACE ORDER</button>}
+            {show && <button className="clear-cart-button" onClick={handleClick}>Clear Cart</button>}
         </div>
     )
 }

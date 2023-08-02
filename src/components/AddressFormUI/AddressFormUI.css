@@ -1,0 +1,60 @@
+.address-form-ui-wrapper {
+    width: 35vw;
+    padding: 10px;
+    margin: 15px;
+    border: 1px solid rgb(170, 168, 168);
+}
+
+.address-form-ui-input-field input {
+    padding: 10px 10px;
+    width: 100%;
+    border: 1px solid rgb(179, 177, 177);
+}
+
+.address-form-ui-input-field {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.address-form-ui-city-state input {
+    width: 100%;
+    padding: 10px 10px;
+    border: 1px solid rgb(179, 177, 177);
+}
+
+.address-form-ui-city-state {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-form-ui-add-address button {
+    width: 100%;
+    padding: 13px 0;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: rgb(255, 63, 108);
+    cursor: pointer;
+}
+
+.address-form-ui-add-address {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.address-form-ui-text {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.address-form-error {
+    text-align: center;
+    font-size: small;
+    color: red;
+}
