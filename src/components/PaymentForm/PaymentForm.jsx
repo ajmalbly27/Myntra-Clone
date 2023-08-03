@@ -1,70 +1,69 @@
 import React, { useState } from "react";
 import './PaymentForm.css';
-import Popup from "../Popup/Popup";
 import { useNavigate } from "react-router-dom";
 
 const PaymentForm = () => {
     const [showArray, setShowArray] = useState([1,0,0,0,0]);
+    const [nameOnCard, setNameOnCard] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [expiryDate, setExpiryDate] = useState('');
+    const [cvv, setCVV] = useState('');
     const [recommendedArray, setRecommendedArray] = useState([0,0,0]);
     const [upiArray, setUpiArray] = useState([0,0,0]);
     const [netBankingArray, setNetBankingArray] = useState([0,0,0,0]);
-
     const [upiId, setUpiId] = useState("");
-    const [showPopup, setShowPopup] = useState(false);
     const [flag, setFlag] = useState(false);
+    const [debitFlag, setDebitFlag] = useState(false);
 
-    const navigate = useNavigate();
+    const navigate = useNavigate();    
 
     const handleCardNumberChange = (event) => {
-        let input = event.target.value;
-        if (input.length < 4) {
-            setCardNumber(input);
-        } else if (input.length === 4) {
-            setCardNumber(`${input} `);
-        } else if (input.length < 9){
-            setCardNumber(input);
-        } else if (input.length === 9) {
-            setCardNumber(`${input} `);
-        } else if (input.length < 14) {
-            setCardNumber(input);
-        } else if (input.length === 14) {
-            setCardNumber(`${input} `);
-        } else if (input.length <= 19) {
-            setCardNumber(input);
-        }
+        let input = event.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+    
+        let formattedCardNumber = input
+            .slice(0, 4)
+            .concat(" ", input.slice(4, 8))
+            .concat(" ", input.slice(8, 12))
+            .concat(" ", input.slice(12, 16))
+            .trim();
+    
+        setCardNumber(formattedCardNumber);
     };
 
     const handleExpiryDateChange = (event) => {
-        let input = event.target.value;
-        if (input.length === 1) {
-            setExpiryDate(input);
-        }else if (input.length === 2) {
-            setExpiryDate(`${input}/`);
-        } else if (input.length > 2){
-            setExpiryDate(input);
-        }
-    };
+        let input = event.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+    
+        let formattedExpiryDate;
+        if (input.length <= 2) {
+            // If the input is empty or has one or two digits, keep it as it is
+            formattedExpiryDate = input;
+        } else {
+            // Otherwise, format the input as "MM/YY"
+            formattedExpiryDate = input
+                .slice(0, 2)
+                .concat("/", input.slice(2, 4))
+                .trim();
+        }    
+        setExpiryDate(formattedExpiryDate);
+    };    
 
     const handlePlaceOrder = () => {
-        setShowPopup(true);
-        // Set a timer to hide the popup after 2000 milliseconds (2 seconds)
-        setTimeout(() => {
-            setShowPopup(false);
-            navigate('/');
-        }, 1000);
+        navigate('/orderconfirmation');
     }
     const handleGooglePayPayNow = () => {
         if(upiId==="") {
             setFlag(true);
         }else {            
-            setShowPopup(true);
-            // Set a timer to hide the popup after 2000 milliseconds (2 seconds)
-            setTimeout(() => {
-                setShowPopup(false);
-                navigate('/');
-            }, 2000);
+            navigate('/orderconfirmation');
+        }
+    }
+
+    const handleCreditOrDebitCardPayNowClick = () => {
+        if(nameOnCard==="" || cardNumber.length<19 || expiryDate.length<5 || cvv.length<3) {
+            setDebitFlag(true);
+        }else {            
+            setDebitFlag(false);
+            navigate('/orderconfirmation');
         }
     }
 
@@ -160,8 +159,15 @@ const PaymentForm = () => {
                     </div>}
                     {showArray[2] === 1 && <div className="credit-debit-wrapper">
                         <div className="credit-debit-text">CREDIT/DEBIT CARD</div>
-                        <div style={{color:'red'}}>Work in progress...</div>
                         <div className="credit-debit-text2">Please ensure your card can be used for online transactions.</div>
+                        <div className="credit-debit-input-field">
+                            <input 
+                                type="text" 
+                                placeholder="Name on card"
+                                value={nameOnCard}
+                                onChange={(e) => setNameOnCard(e.target.value)}
+                            />
+                        </div>
                         <div className="credit-debit-input-field">
                             <input 
                                 type="tel" 
@@ -170,9 +176,6 @@ const PaymentForm = () => {
                                 placeholder="Card Number"
                                 maxLength="19"
                             />
-                        </div>
-                        <div className="credit-debit-input-field">
-                            <input type="text" placeholder="Name on card"/>
                         </div>
                         <div className="credit-debit-valid-cvv-wrapper">
                             <div className="credit-debit-valid-thru">
@@ -189,11 +192,16 @@ const PaymentForm = () => {
                                     type="tel"
                                     maxLength="3" 
                                     placeholder="CVV"
+                                    value={cvv}
+                                    onChange={(e) => setCVV(e.target.value)}
                                 />
                             </div>
                         </div>
+                        {debitFlag && <div style={{color:'red',fontSize:12,marginBottom:10}}>All fields are mandatory. Card Number should be 16 digits.</div>}
                         <div className="cashOnDelivery-place-order">
-                                <button>PAY NOW</button>
+                            <button 
+                                onClick={handleCreditOrDebitCardPayNowClick}
+                            >PAY NOW</button>
                         </div>
                     </div>}
                     {showArray[3] === 1 && <div className="pay-using-upi-wrapper">
@@ -296,7 +304,6 @@ const PaymentForm = () => {
                     </div>}
                 </div>
             </div>
-            <Popup show={showPopup}/>
         </div>
     )
 }

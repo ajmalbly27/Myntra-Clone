@@ -34,7 +34,7 @@ export const CartProvider = (props) => {
         setCartValue(newCartValue);
     }
 
-    const addToWishList = (item) => {
+    const addToWishList = (item, size) => {
         for(let element of wishListValue) {
             if(element.productId === item.productId) {
                 // console.log("Present");

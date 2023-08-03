@@ -11,6 +11,7 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import CheckOutPage from './components/CheckOutPage/CheckOutPage';
 import PaymentPage from './components/PaymentPage/PaymentPage';
 import WishList from './components/WishList/WishList';
+import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
         <Route path='/wishlist' element={<WishList />} />
         <Route path='/checkoutpage' element={<CheckOutPage />} />
         <Route path='/paymentpage' element={<PaymentPage />} />
+        <Route path='/orderconfirmation' element={<OrderConfirmation />} />
       </Routes>
     </div>
   );

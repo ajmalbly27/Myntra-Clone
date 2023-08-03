@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import './Filter.css';
 import { CartContext } from '../../context/CartContext';
 
-const Filter = () => {
+const Filter = ({showMenu}) => {
 
     const { allProductFilter,
             mensJeansFilter, 
@@ -19,7 +19,7 @@ const Filter = () => {
     } = useContext(CartContext);
 
     return(
-        <div className='filter-holder'>
+        <div className={`filter-holder ${showMenu ? "show" : ""}`}>
             <h3 className='filter-heading'>Select Your Products</h3>
             <div className='filter-text'
                 onClick={allProductFilter}

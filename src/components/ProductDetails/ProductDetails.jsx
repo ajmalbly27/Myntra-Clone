@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./ProductDetails.css";
 import NavBar from "../Header/NavBar";
 import { useNavigate, useParams } from "react-router-dom";
@@ -23,7 +23,16 @@ const ProductDetails = () => {
     const selectedProduct = allProducts.find((product) => product.productId === parseInt(productId));
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if(selectedProduct.sizes==="Onesize") {
+            const size = "Onesize";
+            setSelectedSize(size);
+        }
+        // eslint-disable-next-line
+    }, []);
+
     const handleAddToCart = (item) => {
+        
         if(selectedSize === "") {
             setSizeFlag(true);
         }else {
@@ -97,22 +106,23 @@ const ProductDetails = () => {
                         </div>
                         <div>
                             {selectedProduct.sizes && <div>
-                                <div className="select-size-text">SELECT SIZE</div>
-                                {sizeFlag && <div style={{color:'red'}}>
-                                    Please select size.
-                                </div>}
-                                <div className="sizes-container">
-                                    {selectedProduct.sizes.split(",").map((item, i) => {
-                                        return (
-                                            <div
-                                                className={`size-of-product ${selectedSize === item ? "show" : ""}`}
-                                                key={i}
-                                                onClick={() => handleSizeClick(item)}
-                                            >{item}</div>
-                                        )
-                                    })}
+                                    <div className="select-size-text">SELECT SIZE</div>
+                                    {sizeFlag && <div style={{color:'red'}}>
+                                        Please select size.
+                                    </div>}
+                                    <div className="sizes-container">
+                                        {selectedProduct.sizes.split(",").map((item, i) => {
+                                            return (
+                                                <div
+                                                    className={`size-of-product ${selectedSize === item ? "show" : ""}`}
+                                                    key={i}
+                                                    onClick={() => handleSizeClick(item)}
+                                                >{item}</div>
+                                            )
+                                        })}
+                                    </div>
                                 </div>
-                            </div>}
+                            }
                         </div>
                         <div className="add-to-bag-wishlist-wrapper">
                             {!flag ? <button className="add-to-bag-btn" onClick={() => handleAddToCart(selectedProduct)}>ADD TO BAG</button> 

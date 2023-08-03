@@ -29,6 +29,9 @@
 .nav-text {
     font-size: 14px;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-text p {
@@ -37,8 +40,11 @@
 
 .search {
     width: 25vw;
-    padding: 5px 0;
+    padding: 7px 0;
     padding-left: 20px;
+    border-radius: 3px;
+    border: 1px solid rgb(235, 231, 231);
+    background-color: rgb(241, 239, 239);
 }
 
 .profile-wishlist-bag {
@@ -104,8 +110,6 @@
 
 .login-logout-button {
     width: 75px;
-    /* margin-left: 10px;
-    margin-right: 20px; */
     background-color: white;
     border: 1px solid red;
     color: red;
@@ -114,6 +118,101 @@
     cursor: pointer;
 }
 
+.hamburger-icon {
+    display: none; /* Hide the hamburger icon by default for larger screens */
+}
+.hamburger-icon.show {
+    height: 50px;
+    margin-left: 0;
+    /* margin-bottom: 15px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgb(141, 139, 139); */
+}
+.header-links.show{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    z-index: 100;
+    background-color: white;
+    padding: 15px 15px;
+    box-shadow: 0 5px 12px 0 rgba(0,0,0,.05);
+}
+.header-links.show .nav-text p {
+    font-weight: 700;
+}
+
+.hamburgur-icon-login-signup-button {
+    color: #ff3f6c;
+    background: none; 
+    font-weight: 600; 
+    font-size: 18px; 
+    border: none;
+    cursor: pointer;
+}
+
+@media(max-width: 768px) {
+    .image-logo {
+        width: 45px;
+        margin: 0 25px;
+    }
+    .header-links {
+        width: 30vw;
+    }
+    .hamburger-icon {
+        display: block; /* Show the hamburger icon for smaller screens */
+        margin-left: 25px;
+        cursor: pointer;
+    }
+    .header-links {
+        display: none;
+    }
+    .profile-img-wrapper {
+        display: none;
+    }
+    .search {
+        width: 40vw;
+    }
+}
+
+@media(max-width: 468px) {
+    .hamburger-icon {
+        margin-left: 10px;
+    }
+    .image-logo {
+        margin: 0 10px;
+    }
+    .search {
+        width: 42vw;
+        padding-left: 3px;
+    }
+    .search::placeholder {
+        font-size: 11px;
+    }
+    .profile-wishlist-bag img {
+        margin-left: 10px;
+    }
+    .bag-wrapper {
+        margin-right: 10px;
+    }
+    .header-links.show {
+        padding: 10px 10px;
+    }
+    .hamburgur-icon-login-signup-button {
+        font-size: 14px;
+    }
+    .navbar-filter-container .filter-text {
+        padding-left: 7px;
+    }
+}
+
+/* 
 @media screen and (min-width: 968px) and (max-width: 1200px){
     .image-logo {
         margin: 0 35px;
@@ -209,4 +308,4 @@
         margin-right: 10px;
         margin-left: 3px;
     }
-}
+} */
