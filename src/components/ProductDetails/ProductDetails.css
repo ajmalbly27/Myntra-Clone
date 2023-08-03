@@ -163,13 +163,16 @@
     .productDetails-main-div{
         flex-direction: column;
         align-items: center;
+        padding: 0;
+        margin-top: 25px;
     }
     .productDetails-img-div {
-        width: 72vw;
+        width: 85vw;
     }
     .productDetails-details-container {
-        margin-left: 15px;
-        align-items: center;
+        width: 85vw;
+        margin-left: 10px;
+        /* align-items: center; */
     }
     .productDetails-brand {
         font-size: 24px;
@@ -188,8 +191,12 @@
         font-size: medium;
     }
     .add-to-bag-btn {
-        width: 100%;
+        width: 50%;
         margin-top: 15px;
         padding: 10px 0;
+    }
+    .add-to-wishlist-button {
+        margin-top: 15px;
+        width: 45%;
     }
 }

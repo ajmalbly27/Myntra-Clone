@@ -68,6 +68,32 @@
     }
 }
 
+@media (min-width: 469px) and (max-width: 768px) {
+    .content-wrapper, .copy-right-wrapper {
+        padding: 30px 0;
+        margin: 0 30px;
+    }
+    .content-wrapper {
+        font-size: medium;
+    }
+    .copy-right-wrapper {
+        font-size: 14px;
+    }
+    .footer-wrapper img {
+        width: 35px;
+        height: 35px;
+        margin: 0 15px;
+    }
+    .original {
+        font-size: medium;
+        font-weight: 700;
+    }
+    .return {
+        font-size: medium;
+        font-weight: 700;
+    }
+}
+
 /* @media screen and (min-width: 350px) and (max-width: 967px){
     .content-wrapper, .copy-right-wrapper {
         margin: 0 40px;
