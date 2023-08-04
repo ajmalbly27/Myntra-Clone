@@ -98,15 +98,15 @@
 
 @media screen and (min-width: 466px) and (max-width: 850px){
     .cart-product {
-        width: 70vw;
-        margin: auto;
+        width: 90vw;
+        margin: 10px auto;
     }
 }
 
 @media screen and (max-width: 465px){
     .cart-product {
-        width: 70vw;
-        margin: auto;
+        width: 90vw;
+        margin: 10px auto;
     }
     .item-image {
         width: 100px;

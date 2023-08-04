@@ -1,10 +1,20 @@
 .wishlist-products-container {
     margin: 50px 70px;
-    height: 60vh
+    min-height: 60vh
 }
 
 .wishlist-products-wrapper {
     display: flex;
     flex-wrap: wrap;
     margin: 40px 0;
+}
+
+@media(max-width: 768px) {
+    .wishlist-products-container {
+        margin: 30px 30px;
+        min-height: 60vh;
+    }    
+    .wishlist-products-wrapper {
+        margin: 20px 0;
+    }
 }

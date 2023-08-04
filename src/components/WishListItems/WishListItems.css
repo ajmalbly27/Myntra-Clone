@@ -60,3 +60,13 @@
     border-top: 1px solid rgb(214, 212, 212);
     cursor: pointer;
 }
+
+@media(max-width: 768px) {
+    .wishlist-product-wrapper {
+        width: 75vw;
+        margin: 10px auto;
+    }
+    .wishlist-product-image {
+        width: 75vw;
+    }
+}

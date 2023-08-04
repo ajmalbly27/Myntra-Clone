@@ -76,7 +76,9 @@ const NavBar = ()  => {
             </div>
             <div className={`header-links ${showMenu ? "show" : ""}`}>
                 <div className={`hamburger-icon ${showMenu ? "show" : ""}`}>
-                    <button className='hamburgur-icon-login-signup-button' onClick={() => navigate('/login')}>LOGIN/SIGNUP</button>
+                    {!mobileNumber ? <button className='hamburgur-icon-login-signup-button' onClick={() => navigate('/login')}>LOGIN/SIGNUP</button>
+                      : <button className='hamburgur-icon-login-signup-button' onClick={handleLogout}>LOGOUT</button>  
+                    }
                     {showMenu ? <BsX size={35} onClick={toggleMenu}/> : <BsList size={35} />}
                 </div>
                 {!showMenu && <div className='nav-text' onClick={handleMenClick}><p>MEN</p>{showMenu && <div style={{fontSize:18, marginBottom:10, paddingRight:10}}>&#62;</div>}</div>}

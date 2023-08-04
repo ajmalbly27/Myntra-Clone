@@ -67,7 +67,9 @@
 
 @media screen and (min-width: 350px) and (max-width: 850px){
     .price-wrapper {
-        width: 66vw;
-        margin: 15px auto;
+        box-sizing: border-box;
+        width: 90vw;
+        margin: 10px auto;
+        padding: 10px;
     }
 }
