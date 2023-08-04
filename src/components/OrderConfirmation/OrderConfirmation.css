@@ -72,3 +72,61 @@
     width: 40%;
     margin-top: 20px;
 }
+
+@media (max-width: 468px) {
+    .confirmation-main-container {
+        margin-top: 20px;
+    }
+    .confirmation-inner-container {
+        width: 90vw;
+    }
+    .confirmation-most-inner-container {
+        width: 65vw;
+        margin: 20px 10px;
+    }
+    .confirmation-continue-shopping-button {
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .confirmation-continue-shopping-button button {
+        font-size: 14px;
+    }
+}
+@media (min-width: 469px) and (max-width: 768px) {
+    .confirmation-main-container {
+        margin-top: 30px;
+    }
+    .confirmation-inner-container {
+        width: 90vw;
+    }
+    .confirmation-most-inner-container {
+        width: 65vw;
+        margin: 30px 10px;
+    }
+    .confirmation-continue-shopping-button {
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .confirmation-continue-shopping-button button {
+        font-size: 14px;
+    }
+}
+@media (min-width: 769px) and (max-width: 1365px) {
+    .confirmation-main-container {
+        margin-top: 30px;
+    }
+    .confirmation-inner-container {
+        width: 90vw;
+    }
+    .confirmation-most-inner-container {
+        width: 65vw;
+        margin: 30px 10px;
+    }
+    .confirmation-continue-shopping-button {
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .confirmation-continue-shopping-button button {
+        font-size: 14px;
+    }
+}

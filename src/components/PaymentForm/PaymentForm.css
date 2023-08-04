@@ -237,3 +237,78 @@ input::placeholder {
     margin-bottom: 15px;
     display: flex;
 }
+
+@media(max-width: 468px) {
+    .payment-options {
+        width: 90vw;
+    }
+    .payment-page-container {
+        flex-direction: column;
+    }
+    .payment-form-container {
+        margin: 10px auto;
+        padding: 10px;
+    }
+    .payment-options-wrapper {
+        width: 30vw;
+    }
+    .selected-payment-option {
+        width: 60vw;
+        padding: 10px;
+    }
+    .payment-option-divs {
+        font-size: 12px;
+        padding: 21px 5px;
+        word-wrap: break-word;
+    }
+    .payment-option-divs.show {
+        border-left: 3px solid rgb(255, 63, 108);
+    }
+    .recommended-payment-options-text {
+        margin-bottom: 20px;
+        font-size: small;
+    }
+    .recommended-cashondelivery, .recommended-googlepay, .recommended-phonepe {
+        margin-bottom: 20px;
+        font-size: small;
+    }
+    
+}
+
+@media(min-width: 469px) and (max-width: 768px) {
+    .payment-options {
+        width: 90vw;
+    }
+    .payment-page-container {
+        flex-direction: column;
+    }
+    .payment-form-container {
+        /* width: 90vw; */
+        margin: 10px auto;
+        padding: 10px;
+    }
+    .payment-options-wrapper {
+        width: 30vw;
+    }
+    .selected-payment-option {
+        width: 60vw;
+        padding: 10px;
+    }
+    .payment-option-divs {
+        font-size: 12px;
+        padding: 25px 5px;
+        word-wrap: break-word;
+    }
+    .payment-option-divs.show {
+        border-left: 3px solid rgb(255, 63, 108);
+    }
+    .recommended-payment-options-text {
+        margin-bottom: 20px;
+        font-size: small;
+    }
+    .recommended-cashondelivery, .recommended-googlepay, .recommended-phonepe {
+        margin-bottom: 20px;
+        font-size: small;
+    }
+
+}
