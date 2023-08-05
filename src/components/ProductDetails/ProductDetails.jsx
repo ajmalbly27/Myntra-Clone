@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./ProductDetails.css";
 import NavBar from "../Header/NavBar";
 import { useNavigate, useParams } from "react-router-dom";
@@ -15,14 +15,15 @@ const ProductDetails = () => {
     const [wishlistFlag, setWishlistFlag] = useState(false);
     const [selectedSize, setSelectedSize] = useState("");
     const [sizeFlag, setSizeFlag] = useState(false);
-    let selectedProduct = {};
+    // let selectedProduct = {};
+    const selectedProduct = useRef(null);
 
     const { allProducts, addToCart, addToWishList } = useContext(CartContext);
 
     // Get the product ID from the url
     const { productId } = useParams();
     //Find the selected product based on the product ID
-    selectedProduct = allProducts.find((product) => product.productId === parseInt(productId));
+    selectedProduct.current = allProducts.find((product) => product.productId === parseInt(productId));
     const navigate = useNavigate();
 
     // useEffect(() => {
@@ -39,11 +40,10 @@ const ProductDetails = () => {
         fetch("https://demo3154199.mockable.io/products")
         .then(response => response.json())
         .then(data => {
-            let products = data.products;
             // Find the selected product based on the product ID
-            selectedProduct = products.find((product) => product.productId === parseInt(productId));            
+            selectedProduct.current = data.products.find((product) => product.productId === parseInt(productId));            
             // Update the selected size based on the product data
-            if (selectedProduct && selectedProduct.sizes === "Onesize") {
+            if (selectedProduct.current && selectedProduct.current.sizes === "Onesize") {
                 const size = "Onesize";
                 setSelectedSize(size);
             }
@@ -100,40 +100,40 @@ const ProductDetails = () => {
     return (
         <div>
             <NavBar />
-            {selectedProduct && (
+            {selectedProduct.current && (
                 <div className="productDetails-main-div">
                     <div className="productDetails-img-div">
-                        <img src={selectedProduct.searchImage} alt={selectedProduct.additionalInfo} />                    
+                        <img src={selectedProduct.current.searchImage} alt={selectedProduct.current.additionalInfo} />                    
                     </div>
                     <div className="productDetails-details-container">
                         <div>
-                            <div className="productDetails-brand">{selectedProduct.brand}</div>
-                            <div className="productDetails-additionalInfo">{selectedProduct.additionalInfo}</div>
-                            <div className="productDetails-productName">{selectedProduct.productName}</div>
+                            <div className="productDetails-brand">{selectedProduct.current.brand}</div>
+                            <div className="productDetails-additionalInfo">{selectedProduct.current.additionalInfo}</div>
+                            <div className="productDetails-productName">{selectedProduct.current.productName}</div>
                             <div className="rating-box">
-                                <div className="rating">{selectedProduct.rating}</div>
+                                <div className="rating">{selectedProduct.current.rating}</div>
                                 <FaStar className="rating-star"/>
                                 <span className="line-span">|</span>
-                                <div className="ratingCount">{selectedProduct.ratingCount}</div>&nbsp;
+                                <div className="ratingCount">{selectedProduct.current.ratingCount}</div>&nbsp;
                                 <span className="ratingCount">Ratings</span>
                             </div>
                             <div className="line"></div>
                             <div className="productDetails-inner-container">
-                                <div className="productDetails-price">&#8377;{selectedProduct.price}</div>
+                                <div className="productDetails-price">&#8377;{selectedProduct.current.price}</div>
                                 <div className="productDetails-mrp-text">&nbsp;&nbsp;MRP</div>
-                                <div className="productDetails-mrp">&#8377;{selectedProduct.mrp}</div>
-                                <div className="productDetails-discount">{selectedProduct.discountDisplayLabel}</div>
+                                <div className="productDetails-mrp">&#8377;{selectedProduct.current.mrp}</div>
+                                <div className="productDetails-discount">{selectedProduct.current.discountDisplayLabel}</div>
                             </div>
                             <div className="productDetails">inclusive of all taxes</div>
                         </div>
                         <div>
-                            {selectedProduct.sizes && <div>
+                            {selectedProduct.current.sizes && <div>
                                     <div className="select-size-text">SELECT SIZE</div>
                                     {sizeFlag && <div style={{color:'red'}}>
                                         Please select size.
                                     </div>}
                                     <div className="sizes-container">
-                                        {selectedProduct.sizes.split(",").map((item, i) => {
+                                        {selectedProduct.current.sizes.split(",").map((item, i) => {
                                             return (
                                                 <div
                                                     className={`size-of-product ${selectedSize === item ? "show" : ""}`}
@@ -147,12 +147,12 @@ const ProductDetails = () => {
                             }
                         </div>
                         <div className="add-to-bag-wishlist-wrapper">
-                            {!flag ? <button className="add-to-bag-btn" onClick={() => handleAddToCart(selectedProduct)}>ADD TO BAG</button> 
+                            {!flag ? <button className="add-to-bag-btn" onClick={() => handleAddToCart(selectedProduct.current)}>ADD TO BAG</button> 
                                 :<button className="add-to-bag-btn" onClick={handleGoToBag}>GO TO BAG</button>
                             }
                             {!wishlistFlag ?
                                 <button className="add-to-wishlist-button"
-                                    onClick={() => handleWishList(selectedProduct)}
+                                    onClick={() => handleWishList(selectedProduct.current)}
                                 >WISHLIST</button>
                                 :<button className="add-to-wishlist-button"
                                     onClick={handleGoToWishList}
