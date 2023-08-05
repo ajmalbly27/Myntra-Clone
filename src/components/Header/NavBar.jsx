@@ -10,14 +10,15 @@ import { BsList, BsX } from "react-icons/bs";
 
 const NavBar = ()  => {
     const { 
+        username,
+        mobileNumber,
+        setMobileNumber,
         cartValue, 
         menFilter, 
         womenFilter, 
         beautyFilter, 
         watchFilter, 
         onSearch,
-        mobileNumber,
-        setMobileNumber
     } = useContext(CartContext);
 
     const { allProductFilter,
@@ -85,7 +86,6 @@ const NavBar = ()  => {
                 {!showMenu && <div className='nav-text' onClick={handleWomenClick}><p>WOMEN</p>{showMenu && <div style={{fontSize:18, marginBottom:10, paddingRight:10}}>&#62;</div>}</div>}
                 {!showMenu && <div className='nav-text' onClick={handleBeautyClick}><p>BEAUTY</p>{showMenu && <div style={{fontSize:18, marginBottom:10, paddingRight:10}}>&#62;</div>}</div>}
                 {!showMenu && <div className='nav-text' onClick={handleWatchesClick}><p>WATCHES</p>{showMenu && <div style={{fontSize:18, marginBottom:10, paddingRight:10}}>&#62;</div>}</div>}
-                {/* {showMenu && <Filter showMenu={showMenu}/>} */}
                 {showMenu && <div className='navbar-filter-container'>
                     <h3 className='filter-heading'>Select Your Products</h3>
                     <div className='filter-text'
@@ -137,9 +137,21 @@ const NavBar = ()  => {
                 <div className='profile-img-wrapper'>
                     <img src={profile} alt='profile-img' className='profile-img'/>
                     <div className='login-logout-wrapper'>
-                    {mobileNumber === "" ? <button className='login-logout-button' onClick={() => navigate("/login")}>LOGIN</button>
-                        : <button className='login-logout-button' onClick={handleLogout}>LOGOUT</button>
-                    }
+                        {mobileNumber === "" 
+                            ?<div>
+                                <div className='wecome-login-text'>Welcome</div>
+                                <div className='some-login-text'>To access account and manage orders</div>
+                                <button className='login-logout-button' onClick={() => navigate("/login")}>LOGIN/SIGNUP</button>
+                            </div>
+                            :<div>
+                                <div style={{fontWeight:600}}>Hello {username}</div>
+                                <div style={{fontSize:'small',paddingBottom:5,borderBottom:'1px solid grey'}}>{mobileNumber}</div>
+                                <div className='navbar-orders-link' style={{marginTop:10}}
+                                    onClick={() => navigate('/orders')}
+                                >Orders</div>
+                                <button className='login-logout-button' onClick={handleLogout}>LOGOUT</button>
+                            </div>
+                        }
                     </div>
                 </div>
                 <div className='wishlist-wrapper'>

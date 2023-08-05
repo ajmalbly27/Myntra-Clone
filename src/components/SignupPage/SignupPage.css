@@ -1,0 +1,72 @@
+.signup-container {
+    min-height: calc(100vh - 11vh); 
+    background-color: rgb(250, 233, 236);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-main-wrapper {
+    width: 400px;
+    min-height: 420px; 
+    padding: 20px;
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 7px;
+}
+
+.singnp-text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+.singnp-mobile-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(99, 97, 97);
+}
+.signup-mobilenumber {
+    color: rgb(110, 109, 109);
+    font-weight: 500;
+}
+
+.signup-input-field input{
+    width: 100%;
+    margin: 10px 0;
+    padding: 7px 5px;
+    border: 1px solid rgb(189, 187, 187);
+    border-radius: 5px;
+    outline: none;
+}
+.signup-input-field {
+    display: flex;
+}
+
+.signup-input-field input::placeholder{
+   font-size: 15px;
+}
+
+.signup-gender-div {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(99, 97, 97);
+}
+.signup-gender-div label {
+    margin-right: 20px;
+}
+
+.signup-create-account button{
+    width: 100%;
+    margin-top: 35px;
+    padding: 13px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff3f6c;
+    cursor: pointer;
+}

@@ -42,7 +42,6 @@ const CartItem = ({ product }) => {
                 <div className="cancel-button" onClick={() => removeFromCart(product)}>X</div>
             </div>
         </div>
-
     )
     
 }

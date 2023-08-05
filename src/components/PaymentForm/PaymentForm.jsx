@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import './PaymentForm.css';
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
 
 const PaymentForm = () => {
     const [showArray, setShowArray] = useState([1,0,0,0,0]);
@@ -14,6 +15,8 @@ const PaymentForm = () => {
     const [upiId, setUpiId] = useState("");
     const [flag, setFlag] = useState(false);
     const [debitFlag, setDebitFlag] = useState(false);
+
+    const { cartValue, setCartValue, setOrders } = useContext(CartContext);
 
     const navigate = useNavigate();    
 
@@ -63,6 +66,8 @@ const PaymentForm = () => {
             setDebitFlag(true);
         }else {            
             setDebitFlag(false);
+            setOrders(cartValue);
+            setCartValue([]);
             navigate('/orderconfirmation');
         }
     }

@@ -12,6 +12,8 @@ import CheckOutPage from './components/CheckOutPage/CheckOutPage';
 import PaymentPage from './components/PaymentPage/PaymentPage';
 import WishList from './components/WishList/WishList';
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
+import LoginWithPassword from './components/LoginWithPassword/LoginWithPassword';
+import Orders from './components/Orders/Orders';
 
 function App() {
 
@@ -43,6 +45,8 @@ function App() {
         <Route path='/checkoutpage' element={<CheckOutPage />} />
         <Route path='/paymentpage' element={<PaymentPage />} />
         <Route path='/orderconfirmation' element={<OrderConfirmation />} />
+        <Route path='/loginusingpassword' element={<LoginWithPassword />} />
+        <Route path='/orders' element={<Orders />} />
       </Routes>
     </div>
   );

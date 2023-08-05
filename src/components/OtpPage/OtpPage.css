@@ -55,6 +55,13 @@
     margin-right: 20px;
 }
 
+.login-using-password-text {
+    color: #ff3e6c;
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 @media screen and (min-width: 350px) and (max-width: 600px) {
     .otp-main {
         width: 230px;

@@ -43,6 +43,7 @@
     padding: 7px 0;
     padding-left: 20px;
     border-radius: 3px;
+    outline: none;
     border: 1px solid rgb(235, 231, 231);
     background-color: rgb(241, 239, 239);
 }
@@ -70,19 +71,29 @@
 }
 
 .profile-img-wrapper {
+    height: 11vh;
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     cursor: pointer;
 }
 
 .profile-img-wrapper:hover .login-logout-wrapper {
     position: absolute;
     top: 100%;
+    left: -200%;
     display: block;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid rgb(216, 213, 213);
+    background-color: white;
 }
 
 .wishlist-wrapper {
+    height: 11vh;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 }
 
@@ -91,6 +102,9 @@
 }
 
 .bag-wrapper {
+    height: 11vh;
+    display: flex;
+    align-items: center;
     margin-right: 15px;
     position: relative;
 }
@@ -103,16 +117,26 @@
     border-radius: 50%;
     font-size: 12px;
     color: white;
-    right: -15px;
-    top: -10px;
+    right: -10px;
+    top: 7px;
     font-weight: 700;
 }
 
+.wecome-login-text {
+    font-weight: 500;
+}
+.some-login-text {
+    font-size: 11px;
+    color: rgb(151, 150, 150);
+}
+
 .login-logout-button {
-    width: 75px;
+    padding: 7px 7px;
+    margin-top: 10px;
     background-color: white;
-    border: 1px solid red;
-    color: red;
+    border-radius: 5px;
+    border: 1px solid rgb(226, 221, 221);
+    color: #ff3f6c;
     font-size: 14px;    
     font-weight: 700;
     cursor: pointer;
@@ -158,6 +182,12 @@
     border: 1px solid #ff3f6c;
     padding: 5px;
     border-radius: 3px;
+}
+
+.navbar-orders-link:hover {
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 @media(max-width: 768px) {

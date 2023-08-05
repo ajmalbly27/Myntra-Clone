@@ -15,24 +15,46 @@ const ProductDetails = () => {
     const [wishlistFlag, setWishlistFlag] = useState(false);
     const [selectedSize, setSelectedSize] = useState("");
     const [sizeFlag, setSizeFlag] = useState(false);
+    let selectedProduct = {};
 
     const { allProducts, addToCart, addToWishList } = useContext(CartContext);
+
     // Get the product ID from the url
     const { productId } = useParams();
     //Find the selected product based on the product ID
-    const selectedProduct = allProducts.find((product) => product.productId === parseInt(productId));
+    selectedProduct = allProducts.find((product) => product.productId === parseInt(productId));
     const navigate = useNavigate();
 
+    // useEffect(() => {
+    //     if(selectedProduct.sizes==="Onesize") {
+    //         const size = "Onesize";
+    //         setSelectedSize(size);
+    //     }
+    //     // eslint-disable-next-line
+    // }, []);
+
+
+
     useEffect(() => {
-        if(selectedProduct.sizes==="Onesize") {
-            const size = "Onesize";
-            setSelectedSize(size);
-        }
+        fetch("https://demo3154199.mockable.io/products")
+        .then(response => response.json())
+        .then(data => {
+            let products = data.products;
+            // Find the selected product based on the product ID
+            selectedProduct = products.find((product) => product.productId === parseInt(productId));            
+            // Update the selected size based on the product data
+            if (selectedProduct && selectedProduct.sizes === "Onesize") {
+                const size = "Onesize";
+                setSelectedSize(size);
+            }
+        })
         // eslint-disable-next-line
     }, []);
 
-    const handleAddToCart = (item) => {
-        
+
+
+
+    const handleAddToCart = (item) => {        
         if(selectedSize === "") {
             setSizeFlag(true);
         }else {

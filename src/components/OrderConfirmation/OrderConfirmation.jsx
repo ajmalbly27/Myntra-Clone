@@ -19,10 +19,18 @@ const OrderConfirmation = () => {
                         <div className="order-confirmed-text">Order confirmed</div>
                         <div className="confirmation-receive-email-text">Your order is confirmed. You will receive an order confirmation email/SMS shortly with the expected delivery date for your items.</div>
                     </div>
-                    <div className="confirmation-continue-shopping-button">
+                    <div className="confirmation-continue-shopping">
+                        
+                        <div className="confirmation-continue-shopping-button">
+                            <button
+                                onClick={() => navigate('/')}
+                            >CONTINUE SHOPPING</button>
+                        </div>
+                        <div className="confirmation-view-order-button">
                         <button
-                            onClick={() => navigate('/')}
-                        >CONTINUE SHOPPING</button>
+                            onClick={() => navigate('/orders')}
+                        >VIEW ORDER</button>
+                        </div>
                     </div>
                 </div>
             </div>

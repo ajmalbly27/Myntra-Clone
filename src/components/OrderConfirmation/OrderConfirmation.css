@@ -56,24 +56,50 @@
     margin-bottom: 20px;
 }
 
+.confirmation-continue-shopping {
+    width: 40vw;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid rgb(231, 228, 228);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .confirmation-continue-shopping-button button {
     width: 100%;
-    padding: 15px 13px;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    letter-spacing: 1px;
-    background-color:#ff3e6c;
+    font-size: 14px;
+    padding: 10px 5px;
+    color: rgb(41, 99, 207);
     border-radius: 5px;
-    border: none;
+    border: 1px solid rgb(41, 99, 207);
     cursor: pointer;
 }
 .confirmation-continue-shopping-button {
     width: 40%;
-    margin-top: 20px;
 }
 
+.confirmation-view-order-button button{
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 5px;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #ff3f6c;
+    background-color: #ff3f6c;
+    border: none;
+    cursor: pointer;
+}
+.confirmation-view-order-button {
+    width: 40%;
+}
+
+
 @media (max-width: 468px) {
+    .confirmation-continue-shopping {
+        width: 65vw;
+    }
     .confirmation-main-container {
         margin-top: 20px;
     }
@@ -89,10 +115,23 @@
         margin-bottom: 20px;
     }
     .confirmation-continue-shopping-button button {
-        font-size: 14px;
+        font-size: 10px;
+    }
+    .confirmation-continue-shopping-button {
+        width: 60%;
+    }
+    .confirmation-view-order-button button {
+        font-size: 9px;
+        padding: 12px 5px;
+    }
+    .confirmation-view-order-button {
+        width: 35%;
     }
 }
 @media (min-width: 469px) and (max-width: 768px) {
+    .confirmation-continue-shopping {
+        width: 65vw;
+    }    
     .confirmation-main-container {
         margin-top: 30px;
     }
@@ -108,10 +147,16 @@
         margin-bottom: 20px;
     }
     .confirmation-continue-shopping-button button {
-        font-size: 14px;
+        font-size: 11px;
+    }
+    .confirmation-view-order-button button {
+        font-size: 12px;
     }
 }
 @media (min-width: 769px) and (max-width: 1365px) {
+    .confirmation-continue-shopping {
+        width: 65vw;
+    }
     .confirmation-main-container {
         margin-top: 30px;
     }

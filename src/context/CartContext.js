@@ -3,13 +3,14 @@ import React, { createContext, useState } from "react";
 export const CartContext = createContext();
 
 export const CartProvider = (props) => {
-
+    
+    const [username, setUsername] = useState('');
     const [mobileNumber, setMobileNumber] = useState('');
-
     const [allProducts, setAllProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [cartValue, setCartValue] = useState([]);
     const [wishListValue, setWishListValue] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     const addToCart = (item, size) => {
         // Set a default quantity of 1
@@ -195,8 +196,12 @@ export const CartProvider = (props) => {
 
     return (
         <CartContext.Provider value={{
+            username,
+            setUsername,
             mobileNumber,
             setMobileNumber,
+            orders,
+            setOrders,
             allProducts,
             setAllProducts,
             filteredProducts,
