@@ -96,13 +96,6 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 466px) and (max-width: 850px){
-    .cart-product {
-        width: 90vw;
-        margin: 10px auto;
-    }
-}
-
 @media screen and (max-width: 465px){
     .cart-product {
         width: 90vw;
@@ -143,5 +136,12 @@
     .cartItem-14days {
         font-size: 10px;
         font-weight: 600;
+    }
+}
+
+@media screen and (min-width: 466px) and (max-width: 768px){
+    .cart-product {
+        width: 90vw;
+        margin: 10px auto;
     }
 }

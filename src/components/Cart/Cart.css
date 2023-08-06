@@ -36,7 +36,7 @@
     font-size: small;
 }
 
-@media screen and (min-width: 350px) and (max-width: 850px){
+@media screen and (min-width: 350px) and (max-width: 768px){
     .cart-container {
         flex-direction: column;
     }

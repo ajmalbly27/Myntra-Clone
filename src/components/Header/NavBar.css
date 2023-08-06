@@ -146,7 +146,7 @@
     display: none; /* Hide the hamburger icon by default for larger screens */
 }
 .hamburger-icon.show {
-    height: 50px;
+    /* height: 50px; */
     margin-left: 0;
     /* margin-bottom: 15px; */
     display: flex;
@@ -212,6 +212,31 @@
     .search {
         width: 40vw;
     }
+
+    .navbar-filter-heading {
+        color: rgb(29, 28, 28);
+        font-size: 16px;
+    }    
+    .navbar-filter-text {
+        margin-bottom: 3px;
+        padding: 1px 0;
+        padding-left: 10px;
+        font-size: 15px;
+        font-weight: 500;
+        color: rgb(58, 58, 58);
+        cursor: pointer;
+    }
+    .welcome-login-text {
+        font-size: 17px;
+        font-weight: 500;
+    }
+    .some-login-text {
+        font-size: 12px;
+    }
+    .login-logout-button {
+        padding: 5px 5px;
+        font-size: 14px;
+    }
 }
 
 @media(max-width: 468px) {
@@ -244,101 +269,3 @@
         padding-left: 7px;
     }
 }
-
-/* 
-@media screen and (min-width: 968px) and (max-width: 1200px){
-    .image-logo {
-        margin: 0 35px;
-    }
-    .header-links {
-        width: 30vw;
-    }
-    .search {
-        width: 25vw;
-    }
-}
-
-@media screen and (min-width: 768px) and (max-width: 967px){
-    .image-logo {
-        margin: 0 25px;
-    }
-    .header-links {
-        width: 30vw;
-    }
-    .search {
-        width: 25vw;
-        padding: 5px 10px;
-    }
-}
-
-@media screen and (min-width: 720px) and (max-width: 767px){
-    .image-logo {
-        margin: 0 25px;
-    }
-    .nav-text {
-        font-size: 12px;
-        padding-right: 7px;
-    }  
-    .search {
-        width: 27vw;
-        padding: 5px 5px;
-    }
-    ::placeholder{
-        font-size: 12px;
-    }
-}
-
-@media screen and (min-width: 650px) and (max-width: 719px){
-    .image-logo {
-        width: 45px;
-        margin: 0 15px;
-    }
-    .nav-text {
-        font-size: 12px;
-        padding-right: 7px;
-    }  
-    .search {
-        width: 27vw;
-        padding: 5px 5px;
-    }
-    .bag-wrapper {
-        margin-left: 0px;
-    }
-    .login-logout-button {
-        margin-left: 0px;
-        margin-right: 10px;
-    }
-    ::placeholder{
-        font-size: 11px;
-    }
-}
-
-@media screen and (min-width: 350px) and (max-width: 649px){
-    .container {
-        height: 11vh;
-    }
-    .image-logo {
-        width: 10vw;
-        margin: 0 15px;
-    }
-    .nav-text {
-        font-size: 11px;
-        padding-right: 5px;
-    }  
-    .search {
-        display: none;
-    }
-    .profile-wishlist-bag img {
-        width: 6vw;
-        margin-left: 5px;
-    }
-    .bag-wrapper {
-        margin-right: 5px;
-    }
-    .login-logout-button {
-        width: 60px;
-        font-size: 12px;
-        margin-right: 10px;
-        margin-left: 3px;
-    }
-} */

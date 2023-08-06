@@ -20,15 +20,15 @@ const Orders = () => {
                     {orders.length>0 ? <div>
                             {orders.map((product, i) => {
                                 return(
-                                    <div className="cart-product">
-                                        <div className="cart-wrapper-item">
-                                            <div className="cart-item-container">
+                                    <div className="orders-product">
+                                        <div className="orders-wrapper-item">
+                                            <div className="orders-item-container">
                                                 <div>
-                                                    <img className="item-image" src={product.searchImage} alt="product-img"/>
+                                                    <img className="orders-item-image" src={product.searchImage} alt="product-img"/>
                                                 </div>
-                                                <div className="cart-item-details">
-                                                    <div className="cart-item-brand">{product.brand}</div>
-                                                    <div className="cart-item-info"><i>{product.product}</i></div>
+                                                <div className="orders-item-details">
+                                                    <div className="orders-item-brand">{product.brand}</div>
+                                                    <div className="orders-item-info"><i>{product.product}</i></div>
 
                                                     <div className="product-details">
                                                         <span className="product-price">Rs.&nbsp;{product.price}&nbsp;</span>
