@@ -55,6 +55,7 @@ const LoginWithPassword = () => {
                             onClick={handleLogin}
                         >LOGIN</button>
                     </div>
+                    <div className="login-using-text">Login using <span onClick={() => navigate('/otppage')}>OTP</span></div>
                 </form>
             </div>
         </div>

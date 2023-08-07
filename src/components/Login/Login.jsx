@@ -5,11 +5,8 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 
 const Login = () => {
-
-    // const [mobileNumber, setMobileNumber] = useState('');
-    const { mobileNumber, setMobileNumber } = useContext(CartContext);
-
     const [flag, setFlag] = useState(false);
+    const { mobileNumber, setMobileNumber } = useContext(CartContext);
     const navigate = useNavigate();
 
     const handleContinueClick = () => {
@@ -17,7 +14,8 @@ const Login = () => {
             setFlag(true);
             return;
         }
-        navigate("/otppage");
+        // navigate("/otppage");
+        navigate("/loginusingpassword");
     }
 
     return(

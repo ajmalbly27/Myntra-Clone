@@ -61,7 +61,8 @@ const PaymentForm = () => {
             setFlag(true);
         }else {   
             setFlag(false);
-            setOrders(cartValue);         
+            setOrders(cartValue); 
+            setCartValue([]);        
             navigate('/orderconfirmation');
         }
     }
@@ -83,7 +84,8 @@ const PaymentForm = () => {
             setFlag(true);
         }else {   
             setFlag(false);
-            setOrders(cartValue);         
+            setOrders(cartValue);
+            setCartValue([]);         
             navigate('/orderconfirmation');
         }
     }
