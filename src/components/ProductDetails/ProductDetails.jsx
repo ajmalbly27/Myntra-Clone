@@ -35,7 +35,6 @@ const ProductDetails = () => {
     // }, []);
 
 
-
     useEffect(() => {
         fetch("https://demo3154199.mockable.io/products")
         .then(response => response.json())
@@ -50,8 +49,6 @@ const ProductDetails = () => {
         })
         // eslint-disable-next-line
     }, []);
-
-
 
 
     const handleAddToCart = (item) => {        
@@ -100,8 +97,8 @@ const ProductDetails = () => {
     return (
         <div>
             <NavBar />
-            {selectedProduct.current && (
-                <div className="productDetails-main-div">
+            {selectedProduct.current ? 
+                (<div className="productDetails-main-div">
                     <div className="productDetails-img-div">
                         <img src={selectedProduct.current.searchImage} alt={selectedProduct.current.additionalInfo} />                    
                     </div>
@@ -162,8 +159,9 @@ const ProductDetails = () => {
                         <AddToCartPopup show={showPopup}/>
                         <AddToWishList show={showWishListPopup}/>
                     </div>
-                </div>
-            )}
+                </div>)
+                :<div style={{textAlign:'center', height:'50vh', marginTop:50}}>Loading...</div>
+            }
             <Footer />
         </div>
     );

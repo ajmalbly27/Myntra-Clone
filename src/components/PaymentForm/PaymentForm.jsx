@@ -51,12 +51,17 @@ const PaymentForm = () => {
     };    
 
     const handlePlaceOrder = () => {
+        setOrders(cartValue);
+        setCartValue([]);
         navigate('/orderconfirmation');
     }
+
     const handleGooglePayPayNow = () => {
         if(upiId==="") {
             setFlag(true);
-        }else {            
+        }else {   
+            setFlag(false);
+            setOrders(cartValue);         
             navigate('/orderconfirmation');
         }
     }
@@ -68,6 +73,17 @@ const PaymentForm = () => {
             setDebitFlag(false);
             setOrders(cartValue);
             setCartValue([]);
+            navigate('/orderconfirmation');
+        }
+    }
+
+    
+    const handleUpiIdPayNow = () => {
+        if(upiId==="") {
+            setFlag(true);
+        }else {   
+            setFlag(false);
+            setOrders(cartValue);         
             navigate('/orderconfirmation');
         }
     }
@@ -211,7 +227,7 @@ const PaymentForm = () => {
                     </div>}
                     {showArray[3] === 1 && <div className="pay-using-upi-wrapper">
                         <div className="pay-using-upi-text">Pay using UPI</div>
-                        <div style={{color:'red'}}>Work in progress...</div>
+                        {/* <div style={{color:'red'}}>Work in progress...</div> */}
                         <div className="pay-using-upi-phonepe">
                             <input type="radio" id="phonepe" name="pay-using-upi"/>
                             <label htmlFor="phonepe"
@@ -220,7 +236,9 @@ const PaymentForm = () => {
                         </div>
                         {upiArray[0] === 1 && <div>
                             <div className="cashOnDelivery-place-order">
-                                <button>PAY NOW</button>
+                                <button
+                                    onClick={handlePlaceOrder}
+                                >PAY NOW</button>
                             </div>
                         </div>}
 
@@ -233,14 +251,25 @@ const PaymentForm = () => {
                         {upiArray[1] === 1 && <div>
                             <div className="recommended-googlepay-enter-details-wrapper">
                                 <div className="recommended-googlepay-enter-upi">
-                                    <input type="text" placeholder="Enter UPI ID here"/>
+                                    <input 
+                                        type="text" 
+                                        placeholder="Enter UPI ID here"
+                                        value={upiId}
+                                        onChange={(e) => setUpiId(e.target.value)}
+                                    />
                                 </div>
                                 <div className="recommended-googlepay-upi-type">
-                                    <input type="text" value="@oksbi"/>
+                                    <input 
+                                        type="text" 
+                                        value="@oksbi"
+                                    />
                                 </div>
                             </div>
+                            {flag && <div style={{color:'red',textAlign:'center'}}>Please Enter UPI ID</div>}
                             <div className="cashOnDelivery-place-order">
-                                <button>PAY NOW</button>
+                                <button
+                                    onClick={handleGooglePayPayNow}
+                                >PAY NOW</button>
                             </div>
                         </div>}
                         
@@ -252,10 +281,18 @@ const PaymentForm = () => {
                         </div>
                         {upiArray[2] === 1 && <div>
                             <div className="pay-using-upi-id-inner-wrapper">
-                                <input type="text" placeholder="Enter UPI ID here"/>
+                                <input 
+                                    type="text" 
+                                    placeholder="Enter UPI ID here"
+                                    value={upiId}
+                                    onChange={(e) => setUpiId(e.target.value)}
+                                />
                             </div>
+                            {flag && <div style={{color:'red',textAlign:'center'}}>Please Enter UPI ID</div>}
                             <div className="cashOnDelivery-place-order">
-                                <button>PAY NOW</button>
+                                <button
+                                    onClick={handleUpiIdPayNow}
+                                >PAY NOW</button>
                             </div>
                         </div>}
                     </div>}
