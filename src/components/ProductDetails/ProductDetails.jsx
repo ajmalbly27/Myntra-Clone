@@ -35,7 +35,6 @@ const ProductDetails = () => {
     //     // eslint-disable-next-line
     // }, []);
 
-
     useEffect(() => {
         fetch("https://demo3154199.mockable.io/products")
         .then(response => response.json())
