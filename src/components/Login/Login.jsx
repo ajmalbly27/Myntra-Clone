@@ -6,16 +6,37 @@ import { CartContext } from "../../context/CartContext";
 
 const Login = () => {
     const [flag, setFlag] = useState(false);
-    const { mobileNumber, setMobileNumber } = useContext(CartContext);
+    const { mobileNumber, setMobileNumber, setUsername } = useContext(CartContext);
     const navigate = useNavigate();
+
+    const checkForUser = (existingUsers) => {
+        for(let element of existingUsers) {
+            if(element.mobileNumber === mobileNumber) {
+                setUsername(element.fullName);
+                return true;
+            }
+        }
+        return false;
+    }
 
     const handleContinueClick = () => {
         if(mobileNumber === '' || mobileNumber.length < 10 || mobileNumber.length > 10) {
             setFlag(true);
             return;
         }
-        // navigate("/otppage");
-        navigate("/loginusingpassword");
+
+        const existingUsers = JSON.parse(localStorage.getItem('myntra_users')) || [];
+        const isUserExist = checkForUser(existingUsers);
+        if(isUserExist) {
+            // console.log("User is present");
+            localStorage.setItem('mobileNumber', JSON.stringify(mobileNumber));
+            navigate("/loginusingpassword");
+        }else {
+            // console.log("User is not present");
+            localStorage.setItem('mobileNumber', JSON.stringify(mobileNumber));
+            navigate("/signuppage");
+        }
+        // navigate("/otppage");        
     }
 
     return(

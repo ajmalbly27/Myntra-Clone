@@ -184,10 +184,15 @@
     border-radius: 3px;
 }
 
+.navbar-orders-link{
+    color: #ff3f6c;
+    font-weight: 500;
+}
 .navbar-orders-link:hover {
-    color: black;
+    color: red;
     font-size: 18px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 @media(max-width: 768px) {
@@ -247,11 +252,11 @@
         margin: 0 10px;
     }
     .search {
-        width: 42vw;
+        width: 45vw;
         padding-left: 3px;
     }
     .search::placeholder {
-        font-size: 11px;
+        font-size: 9px;
     }
     .profile-wishlist-bag img {
         margin-left: 10px;

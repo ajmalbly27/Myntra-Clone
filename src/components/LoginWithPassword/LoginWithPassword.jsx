@@ -15,6 +15,7 @@ const LoginWithPassword = () => {
     const checkForPassword = (existingUsers) => {
         const user = existingUsers.find((user) => user.mobileNumber === mobileNumber);
         if (user.password === password) {
+            localStorage.setItem('username', JSON.stringify(user.fullName));
             setUsername(user.fullName);
             return true;
         }

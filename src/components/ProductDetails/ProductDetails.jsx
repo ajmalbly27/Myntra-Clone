@@ -7,6 +7,7 @@ import Footer from "../../Footer/Footer";
 import { FaStar } from 'react-icons/fa';
 import AddToCartPopup from "../Popup/AddToCartPopup";
 import AddToWishList from "../Popup/AddToWishList";
+import loader from "../../images/loader.gif";
 
 const ProductDetails = () => {    
     const [showPopup, setShowPopup] = useState(false);
@@ -160,7 +161,9 @@ const ProductDetails = () => {
                         <AddToWishList show={showWishListPopup}/>
                     </div>
                 </div>)
-                :<div style={{textAlign:'center', height:'50vh', marginTop:50}}>Loading...</div>
+                :<div style={{textAlign:'center', height:'70vh', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                    <img src={loader} alt="loader" style={{width:'100px'}}/>
+                </div>
             }
             <Footer />
         </div>

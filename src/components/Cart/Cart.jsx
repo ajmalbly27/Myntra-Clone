@@ -8,18 +8,19 @@ import { CartContext } from "../../context/CartContext";
 import EmptyCartNavbar from "../EmptyCartNavbar/EmptyCartNavbar";
 import Footer from "../../Footer/Footer";
 
-
 const Cart = () => {
     // eslint-disable-next-line
     const [show, setshow] = useState(true);
-    const { cartValue } = useContext(CartContext);
+    // const { cartValue } = useContext(CartContext);
+    const { getCart } = useContext(CartContext);
+    const cartValueFromLocalStorage = getCart();
 
     return(
         <div className="cart-wrapper">            
             <EmptyCartNavbar />
             <div className="cart-container">
                 <div>
-                    { cartValue.length > 0 ?
+                    { cartValueFromLocalStorage.length > 0 ?
                         <div className="offers">
                             <div className="offers-container">
                                 <div className="available-offers">                                
@@ -32,8 +33,8 @@ const Cart = () => {
                     }
 
                     <div>                    
-                        {cartValue.length > 0 ? 
-                            cartValue.map((product, i) => (
+                        {cartValueFromLocalStorage.length > 0 ? 
+                            cartValueFromLocalStorage.map((product, i) => (
                                 <CartItem product={product} key={i}/>
                             ))
                         :<div className="empty-cart">
@@ -43,7 +44,7 @@ const Cart = () => {
                     </div>                    
                 </div>                
                 <div>
-                    {   cartValue.length>0 && <PriceCalculation show={show}/>   }               
+                    {   cartValueFromLocalStorage.length>0 && <PriceCalculation show={show}/>   }               
                 </div>
             </div>
             <Footer />

@@ -16,7 +16,7 @@ const PaymentForm = () => {
     const [flag, setFlag] = useState(false);
     const [debitFlag, setDebitFlag] = useState(false);
 
-    const { cartValue, setCartValue, setOrders } = useContext(CartContext);
+    const { setCartValue, setOrders, getCart } = useContext(CartContext);
 
     const navigate = useNavigate();    
 
@@ -51,19 +51,49 @@ const PaymentForm = () => {
     };    
 
     const handlePlaceOrder = () => {
-        setOrders(cartValue);
-        setCartValue([]);
+        // get previous orders from localstorage
+        const orders = JSON.parse(localStorage.getItem('orders')) || []; 
+        // get cart from localstorage
+        const cartFromLocalstorage = getCart();       
+        // Update orders in localStorage by combining existing orders and cartValue
+        const updatedOrders = [...orders, ...cartFromLocalstorage];  
+        // Update the state variable 'orders' with the updated orders
+        setOrders(updatedOrders);        
+        // Clear the cart
+        setCartValue([]);        
+        // Remove cart from localStorage
+        localStorage.removeItem('cart');        
+        // Set orders in localStorage after updating it correctly
+        localStorage.setItem('orders', JSON.stringify(updatedOrders));        
+        // Navigate to order confirmation
         navigate('/orderconfirmation');
     }
+
+
 
     const handleGooglePayPayNow = () => {
         if(upiId==="") {
             setFlag(true);
         }else {   
             setFlag(false);
-            setOrders(cartValue); 
+            // get previous orders from localstorage
+            const orders = JSON.parse(localStorage.getItem('orders')) || []; 
+            // get cart from localstorage
+            const cartFromLocalstorage = getCart();       
+            // Update orders in localStorage by combining existing orders and cartValue
+            const updatedOrders = [...orders, ...cartFromLocalstorage];  
+            // Update the state variable 'orders' with the updated orders
+            setOrders(updatedOrders);        
+            // Clear the cart
             setCartValue([]);        
+            // Remove cart from localStorage
+            localStorage.removeItem('cart');        
+            // Set orders in localStorage after updating it correctly
+            localStorage.setItem('orders', JSON.stringify(updatedOrders));        
+            // Navigate to order confirmation
             navigate('/orderconfirmation');
+            // setOrders(cartValue); 
+            // setCartValue([]);        
         }
     }
 
@@ -72,9 +102,24 @@ const PaymentForm = () => {
             setDebitFlag(true);
         }else {            
             setDebitFlag(false);
-            setOrders(cartValue);
-            setCartValue([]);
+            // get previous orders from localstorage
+            const orders = JSON.parse(localStorage.getItem('orders')) || []; 
+            // get cart from localstorage
+            const cartFromLocalstorage = getCart();       
+            // Update orders in localStorage by combining existing orders and cartValue
+            const updatedOrders = [...orders, ...cartFromLocalstorage];  
+            // Update the state variable 'orders' with the updated orders
+            setOrders(updatedOrders);        
+            // Clear the cart
+            setCartValue([]);        
+            // Remove cart from localStorage
+            localStorage.removeItem('cart');        
+            // Set orders in localStorage after updating it correctly
+            localStorage.setItem('orders', JSON.stringify(updatedOrders));        
+            // Navigate to order confirmation
             navigate('/orderconfirmation');
+            // setOrders(cartValue);
+            // setCartValue([]);
         }
     }
 
@@ -84,9 +129,24 @@ const PaymentForm = () => {
             setFlag(true);
         }else {   
             setFlag(false);
-            setOrders(cartValue);
-            setCartValue([]);         
+            // get previous orders from localstorage
+            const orders = JSON.parse(localStorage.getItem('orders')) || []; 
+            // get cart from localstorage
+            const cartFromLocalstorage = getCart();       
+            // Update orders in localStorage by combining existing orders and cartValue
+            const updatedOrders = [...orders, ...cartFromLocalstorage];  
+            // Update the state variable 'orders' with the updated orders
+            setOrders(updatedOrders);        
+            // Clear the cart
+            setCartValue([]);        
+            // Remove cart from localStorage
+            localStorage.removeItem('cart');        
+            // Set orders in localStorage after updating it correctly
+            localStorage.setItem('orders', JSON.stringify(updatedOrders));        
+            // Navigate to order confirmation
             navigate('/orderconfirmation');
+            // setOrders(cartValue);
+            // setCartValue([]);         
         }
     }
 

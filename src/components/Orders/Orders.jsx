@@ -5,7 +5,8 @@ import { CartContext } from "../../context/CartContext";
 import emptyOrder from '../../images/empty-order.png';
 
 const Orders = () => {
-    const { username, orders } = useContext(CartContext);
+    const { username } = useContext(CartContext);
+    const ordersFromLocalStorage = JSON.parse(localStorage.getItem('orders'));
 
     return(
         <div className="orders-container-wrapper">
@@ -17,10 +18,10 @@ const Orders = () => {
                         <div>{username}</div>
                     </div>
                     <div className="all-oreders-text">All Orders :</div>
-                    {orders.length>0 ? <div>
-                            {orders.map((product, i) => {
+                    {ordersFromLocalStorage ? <div>
+                            {ordersFromLocalStorage.map((product, i) => {
                                 return(
-                                    <div className="orders-product">
+                                    <div className="orders-product" key={i}>
                                         <div className="orders-wrapper-item">
                                             <div className="orders-item-container">
                                                 <div>

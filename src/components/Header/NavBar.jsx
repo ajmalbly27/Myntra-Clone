@@ -11,9 +11,10 @@ import { BsList, BsX } from "react-icons/bs";
 const NavBar = ()  => {
     const { 
         username,
+        setUsername,
         mobileNumber,
         setMobileNumber,
-        cartValue, 
+        // cartValue,
         menFilter, 
         womenFilter, 
         beautyFilter, 
@@ -35,9 +36,12 @@ const NavBar = ()  => {
         slidersFilter
     } = useContext(CartContext);
     
-    const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
-
+    const navigate = useNavigate();    
+    const { getCart } = useContext(CartContext);
+    const cartValueFromLocalStorage = getCart();
+    
+    
     const toggleMenu = () => {
         setShowMenu(!showMenu);
     };
@@ -60,7 +64,10 @@ const NavBar = ()  => {
     }
 
     const handleLogout = () => {
+        localStorage.removeItem('mobileNumber');
+        localStorage.removeItem('username');
         setMobileNumber('');
+        setUsername('');
         navigate('/');
     }
 
@@ -78,19 +85,17 @@ const NavBar = ()  => {
             <div className={`header-links ${showMenu ? "show" : ""}`}>
                 <div className={`hamburger-icon ${showMenu ? "show" : ""}`}>
                     {!mobileNumber 
-                        // ?<button className='hamburgur-icon-login-signup-button' onClick={() => navigate('/login')}>LOGIN/SIGNUP</button>
                         ?<div>
                             <div className='welcome-login-text'>Welcome</div>
                             <div className='some-login-text'>To access account and manage orders</div>
                             <button className='login-logout-button' onClick={() => navigate("/login")}>LOGIN/SIGNUP</button>
-                        </div>
-                        // :<button className='hamburgur-icon-login-signup-button' onClick={handleLogout}>LOGOUT</button>  
+                        </div>  
                         :<div>
-                            <div style={{fontWeight:600}}>Hello {username}</div>
+                            <div style={{fontWeight:600}}>Hello {JSON.parse(localStorage.getItem('username'))}</div>
                             <div style={{fontSize:'small',paddingBottom:5,borderBottom:'1px solid grey'}}>{mobileNumber}</div>
                             <div className='navbar-orders-link' style={{marginTop:10}}
                                 onClick={() => navigate('/orders')}
-                            >Orders</div>
+                            >Your Orders</div>
                             <button className='login-logout-button' onClick={handleLogout}>LOGOUT</button>
                         </div>
                     }
@@ -151,7 +156,7 @@ const NavBar = ()  => {
                 <div className='profile-img-wrapper'>
                     <img src={profile} alt='profile-img' className='profile-img'/>
                     <div className='login-logout-wrapper'>
-                        {mobileNumber === "" 
+                        {JSON.parse(localStorage.getItem('mobileNumber')) === null 
                             ?<div>
                                 <div className='welcome-login-text'>Welcome</div>
                                 <div className='some-login-text'>To access account and manage orders</div>
@@ -173,7 +178,7 @@ const NavBar = ()  => {
                 </div>
                 <div className='bag-wrapper'>
                     <img src={bag} alt='bag-img' onClick={() => navigate('/Cart')}/>
-                    {cartValue.length ? <span className="bag-span">{cartValue.length}</span> : null}
+                    {cartValueFromLocalStorage.length ? <span className="bag-span">{cartValueFromLocalStorage.length}</span> : null}
                 </div>
             </div>
         </div>

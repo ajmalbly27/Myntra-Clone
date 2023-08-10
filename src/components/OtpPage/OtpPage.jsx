@@ -26,6 +26,7 @@ const OtpPage = () => {
     const checkForUser = (existingUsers) => {
         for(let element of existingUsers) {
             if(element.mobileNumber === mobileNumber) {
+                localStorage.setItem('username', JSON.stringify(element.fullName));
                 setUsername(element.fullName);
                 return true;
             }

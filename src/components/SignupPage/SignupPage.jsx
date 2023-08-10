@@ -11,7 +11,7 @@ const SignupPage = () => {
     const [email, setEmail] = useState("");
     const [gender, setGender] = useState("");
     const [flag, setFlag] = useState(false);
-    const { mobileNumber } = useContext(CartContext);
+    const { mobileNumber, setUsername } = useContext(CartContext);
 
     const navigate = useNavigate();
 
@@ -30,6 +30,8 @@ const SignupPage = () => {
             // Save the updated array back to local storage
             localStorage.setItem('myntra_users', JSON.stringify(updatedUsers));
             // Redirect to the main page 
+            setUsername(fullName);
+            localStorage.setItem('username', JSON.stringify(fullName));
             navigate('/');
         }
     }

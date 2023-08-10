@@ -1,57 +1,143 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
 export const CartProvider = (props) => {
     
-    const [username, setUsername] = useState('');
-    const [mobileNumber, setMobileNumber] = useState('');
+    const [username, setUsername] = useState(JSON.parse(localStorage.getItem('username')) || '');
+    const [mobileNumber, setMobileNumber] = useState(JSON.parse(localStorage.getItem('mobileNumber')) || '');
     const [allProducts, setAllProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
-    const [cartValue, setCartValue] = useState([]);
+    const [cartValue, setCartValue] = useState(JSON.parse(localStorage.getItem('cart')) || []);
     const [wishListValue, setWishListValue] = useState([]);
-    const [orders, setOrders] = useState([]);
+    const [orders, setOrders] = useState(JSON.parse(localStorage.getItem('orders')) || []);
 
-    const addToCart = (item, size) => {
-        // Set a default quantity of 1
-        const itemWithQuantity = { ...item, quantity: 1, size: size };
 
-        for(let element of cartValue) {
+    // const addToCart = (item, size) => {
+    //     // Set a default quantity of 1
+    //     const itemWithQuantity = { ...item, quantity: 1, size: size };
+    //     for(let element of cartValue) {
+    //         if(element.productId === item.productId) {
+    //             // console.log("Present");
+    //             return;
+    //         }
+    //     }
+    //     setCartValue([...cartValue, itemWithQuantity]);
+    // }
+    // Add item to cart
+    const addToCart = (item) => {
+        const itemWithQuantity = { ...item, quantity: 1 };
+        const cartItemsFromLocalStorage = getCart();
+        for(let element of cartItemsFromLocalStorage) {
             if(element.productId === item.productId) {
                 // console.log("Present");
                 return;
             }
         }
-
+        // const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cartItemsFromLocalStorage.push(itemWithQuantity);
+        localStorage.setItem('cart', JSON.stringify(cartItemsFromLocalStorage));
         setCartValue([...cartValue, itemWithQuantity]);
+    };
+    const getCart = () => {
+        return JSON.parse(localStorage.getItem('cart')) || [];
     }
-    
-    const removeFromCart = (item) => {
-        let newCartValue = [...cartValue];
-        const index = newCartValue.indexOf(item);
-        if (index > -1) {
-            newCartValue.splice(index, 1);
-        }
-        setCartValue(newCartValue);
-    }
+  
+    // const removeFromCart = (item) => {
+    //     let newCartValue = [...cartValue];
+    //     const index = newCartValue.indexOf(item);
+    //     if (index > -1) {
+    //         newCartValue.splice(index, 1);
+    //     }
+    //     setCartValue(newCartValue);
+    // }
+    // Remove item from cart
+    const removeFromCart = (itemToRemove) => {
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        const updatedCart = cart.filter(item => item.productId !== itemToRemove.productId);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        setCartValue(updatedCart);
+    };
 
-    const addToWishList = (item, size) => {
-        for(let element of wishListValue) {
+    useEffect(() => {
+        // setCartValue(localStorage.getItem('cart') || []);
+        window.addEventListener("storage", onStorageUpdate);
+        return () => {
+          window.removeEventListener("storage", onStorageUpdate);
+        };
+    }, []);
+    const onStorageUpdate = (e) => {
+        const { key, newValue } = e;
+        if (key === "cart") {
+            setCartValue(newValue);
+        }
+        if (key === "username") {
+            setUsername(newValue);
+        }
+        if (key === "mobileNumber") {
+            setMobileNumber(newValue);
+        }
+        if (key === "wishlist") {
+            setWishListValue(newValue);
+        }
+        if (key === "orders") {
+            setOrders(newValue);
+        }
+    };
+
+    // const addToWishList = (item, size) => {
+    //     for(let element of wishListValue) {
+    //         if(element.productId === item.productId) {
+    //             // console.log("Present");
+    //             return;
+    //         }
+    //     }
+    //     setWishListValue([...wishListValue, item])
+    // }
+    const getWishlist = () => {
+        return JSON.parse(localStorage.getItem('wishlist')) || [];
+    }
+    const addToWishList = (item) => {
+        const wishlistFromLocalstorage = getWishlist();
+        for(let element of wishlistFromLocalstorage) {
             if(element.productId === item.productId) {
                 // console.log("Present");
                 return;
             }
         }
+        wishlistFromLocalstorage.push(item);
+        localStorage.setItem('wishlist', JSON.stringify(wishlistFromLocalstorage));
         setWishListValue([...wishListValue, item])
     }
 
-    const removeFromWishList = (item) => {
-        let newWishList = [...wishListValue];
-        const index = newWishList.indexOf(item);
-        if (index > -1) {
-            newWishList.splice(index, 1);
-        }
-        setWishListValue(newWishList);
+
+
+
+    // const removeFromWishList = (item) => {
+    //     let newWishList = [...wishListValue];
+    //     const index = newWishList.indexOf(item);
+    //     if (index > -1) {
+    //         newWishList.splice(index, 1);
+    //     }
+    //     setWishListValue(newWishList);
+    // }
+    // const removeFromCart = (itemToRemove) => {
+    //     const cart = JSON.parse(localStorage.getItem('cart'));
+    //     const updatedCart = cart.filter(item => item.productId !== itemToRemove.productId);
+    //     localStorage.setItem('cart', JSON.stringify(updatedCart));
+    //     setCartValue(updatedCart);
+    // };
+    const removeFromWishList = (itemToRemove) => {
+        // let newWishList = [...wishListValue];
+        let newWishlist = JSON.parse(localStorage.getItem('wishlist'));
+        const updatedWishlist = newWishlist.filter(item => item.productId !==itemToRemove.productId);
+        // const index = newWishList.indexOf(item);
+        // const index = newWishlist.indexOf(itemToRemove);
+        // if (index > -1) {
+        //     newWishlist.splice(index, 1);
+        // }
+        localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+        setWishListValue(updatedWishlist);
     }
 
     const increaseQuantity = (item) => {
@@ -232,7 +318,10 @@ export const CartProvider = (props) => {
             womenFilter,
             beautyFilter,
             watchFilter,
-            onSearch
+            onSearch,
+
+            getCart,
+            getWishlist,
         }}>
             {props.children}
         </CartContext.Provider>

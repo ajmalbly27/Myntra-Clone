@@ -6,7 +6,10 @@ import { CartContext } from "../../context/CartContext";
 const PriceCalculation = ({show}) => {
 
     const navigate = useNavigate();
-    const { cartValue, mobileNumber, setCartValue } = useContext(CartContext);
+    const { mobileNumber, setCartValue } = useContext(CartContext);
+
+    const { getCart } = useContext(CartContext);
+    const cartValueFromLocalStorage = getCart();
 
     let mrpPrice = 0;
     let finalPrice = 0;
@@ -14,7 +17,7 @@ const PriceCalculation = ({show}) => {
     let convenienceFee = 10;
     let totalAmount = 0;
 
-    for(let item of cartValue) {
+    for(let item of cartValueFromLocalStorage) {
         mrpPrice = Number(mrpPrice) + item.quantity * (Number(item.mrp));
         finalPrice = Number(finalPrice) + item.quantity * (Number(item.price));
         discountPrice = Number(mrpPrice - finalPrice);
@@ -30,6 +33,7 @@ const PriceCalculation = ({show}) => {
     }
 
     const handleClick = () => {
+        localStorage.removeItem('cart');
         setCartValue([]);
     }
 
